@@ -2,15 +2,30 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Content Opportunity Scoring | Fatima Iqbal</title>
 
     <meta name="description"
-        content="FlyRank ML Internship capstone research paper on content opportunity scoring and search review prioritization.">
+        content="Research paper by Fatima Iqbal on content opportunity scoring, search-performance signals, machine learning validation, and content review prioritization.">
 
     <style>
+
+        :root {
+            --navy: #0f172a;
+            --blue: #2563eb;
+            --blue-dark: #1d4ed8;
+            --blue-light: #eff6ff;
+            --text: #334155;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --green: #15803d;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -22,277 +37,476 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f8fafc;
-            color: #334155;
+            font-family: Inter, Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.75;
         }
 
+        /* ================= NAVBAR ================= */
+
         header {
-            background: #0f172a;
-            color: white;
-            padding: 18px 6%;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.97);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .nav {
-            max-width: 1100px;
+            max-width: 1180px;
             margin: auto;
+            min-height: 68px;
+            padding: 0 25px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
+        .brand {
+            color: white;
+            text-decoration: none;
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
         }
 
-        .logo span {
+        .brand span {
             color: #60a5fa;
         }
 
-        .nav a {
-            color: #cbd5e1;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 14px;
+        .nav-links {
+            display: flex;
+            gap: 22px;
         }
 
-        .nav a:hover {
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
             color: white;
         }
 
+        /* ================= HERO ================= */
+
         .hero {
-            background: linear-gradient(135deg, #eff6ff, white);
-            padding: 85px 6%;
-            border-bottom: 1px solid #e2e8f0;
+            background:
+                radial-gradient(circle at top right, #dbeafe, transparent 35%),
+                linear-gradient(135deg, #f8fafc, #ffffff);
+            border-bottom: 1px solid var(--border);
+            padding: 95px 25px 85px;
         }
 
-        .hero-content {
-            max-width: 1000px;
+        .hero-inner {
+            max-width: 1080px;
             margin: auto;
         }
 
-        .tag {
+        .eyebrow {
             display: inline-block;
-            background: #dbeafe;
-            color: #1d4ed8;
             padding: 7px 14px;
-            border-radius: 30px;
+            background: var(--blue-light);
+            color: var(--blue-dark);
+            border: 1px solid #bfdbfe;
+            border-radius: 999px;
             font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            color: #0f172a;
-            font-size: clamp(38px, 6vw, 62px);
-            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: 0.5px;
             margin-bottom: 22px;
         }
 
-        .subtitle {
-            font-size: 19px;
-            max-width: 800px;
-            color: #475569;
+        h1 {
+            max-width: 950px;
+            color: var(--navy);
+            font-size: clamp(40px, 6vw, 68px);
+            line-height: 1.08;
+            letter-spacing: -2px;
             margin-bottom: 25px;
         }
 
-        .author {
-            font-size: 14px;
+        .hero-description {
+            max-width: 820px;
             color: #475569;
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 28px;
         }
 
+        .author-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .author-row strong {
+            color: var(--navy);
+        }
+
+        /* ================= LAYOUT ================= */
+
         .container {
-            max-width: 1100px;
-            margin: 50px auto;
+            max-width: 1080px;
+            margin: 55px auto;
             padding: 0 25px;
         }
 
-        section {
-            background: white;
-            padding: 38px;
+        .paper-section {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 42px;
             margin-bottom: 28px;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            box-shadow: 0 5px 20px rgba(15, 23, 42, 0.04);
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+        }
+
+        .section-number {
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 7px;
         }
 
         h2 {
-            color: #0f172a;
-            font-size: 28px;
-            margin-bottom: 18px;
+            color: var(--navy);
+            font-size: 30px;
+            line-height: 1.25;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
         }
 
         h3 {
             color: #1e3a8a;
-            margin-top: 25px;
-            margin-bottom: 10px;
+            font-size: 19px;
+            margin: 28px 0 10px;
         }
 
         p {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         ul,
         ol {
-            margin-left: 25px;
-            margin-bottom: 18px;
+            margin: 12px 0 18px 24px;
         }
 
         li {
             margin-bottom: 8px;
         }
 
-        .question {
-            background: #eff6ff;
-            border-left: 5px solid #2563eb;
-            padding: 22px;
-            margin: 20px 0;
-            border-radius: 8px;
-            color: #1e3a8a;
-            font-size: 18px;
+        strong {
+            color: #1e293b;
         }
+
+        /* ================= ABSTRACT ================= */
+
+        .abstract {
+            border-left: 5px solid var(--blue);
+            background: var(--blue-light);
+            padding: 24px 27px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 20px;
+        }
+
+        .abstract p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ================= QUESTION ================= */
+
+        .research-question {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+
+        .research-question .label {
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .research-question .question {
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.5;
+        }
+
+        /* ================= METRICS ================= */
 
         .metrics {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin: 25px 0;
+            gap: 16px;
+            margin: 30px 0;
         }
 
         .metric {
+            padding: 25px;
             background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
             text-align: center;
-            border-radius: 12px;
         }
 
-        .metric strong {
+        .metric-value {
             display: block;
-            font-size: 30px;
-            color: #2563eb;
+            color: var(--blue);
+            font-size: 34px;
+            line-height: 1;
+            font-weight: 800;
+            margin-bottom: 9px;
         }
 
-        .metric span {
+        .metric-label {
+            color: var(--muted);
             font-size: 13px;
-            color: #64748b;
         }
 
-        .table-wrap {
+        /* ================= TABLE ================= */
+
+        .table-wrapper {
             overflow-x: auto;
-            margin: 20px 0;
+            margin: 22px 0;
+            border: 1px solid var(--border);
+            border-radius: 12px;
         }
 
         table {
             width: 100%;
+            min-width: 520px;
             border-collapse: collapse;
-            min-width: 500px;
         }
 
         th {
-            background: #0f172a;
+            background: var(--navy);
             color: white;
-            padding: 13px;
+            padding: 14px 16px;
             text-align: left;
+            font-size: 13px;
         }
 
         td {
-            padding: 13px;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
         }
 
         tr:nth-child(even) {
             background: #f8fafc;
         }
 
+        /* ================= FINDINGS ================= */
+
         .finding {
+            padding: 19px 21px;
             background: #f8fafc;
-            border-left: 4px solid #2563eb;
-            padding: 18px;
-            margin: 15px 0;
-            border-radius: 6px;
+            border-left: 4px solid var(--blue);
+            border-radius: 0 9px 9px 0;
+            margin: 14px 0;
         }
 
+        /* ================= RECOMMENDATIONS ================= */
+
         .recommendation {
-            background: #f8fafc;
-            border-left: 5px solid #2563eb;
-            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
             margin: 18px 0;
-            border-radius: 0 10px 10px 0;
+            background: white;
+        }
+
+        .recommendation:hover {
+            border-color: #93c5fd;
         }
 
         .priority {
-            color: #1d4ed8;
-            font-size: 12px;
-            font-weight: bold;
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
+        .recommendation h3 {
+            color: var(--navy);
+            font-size: 21px;
+            margin-top: 6px;
+        }
+
+        /* ================= NOTE ================= */
+
         .note {
-            background: #fefce8;
+            background: #fffbeb;
             border: 1px solid #fde68a;
-            padding: 18px;
-            border-radius: 10px;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 22px;
+        }
+
+        .success-note {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 22px;
+        }
+
+        /* ================= ARTIFACTS ================= */
+
+        .artifact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
             margin-top: 20px;
         }
 
-        a {
-            color: #2563eb;
+        .artifact {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
         }
 
+        .artifact-number {
+            color: var(--blue);
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        .artifact h3 {
+            margin-top: 5px;
+        }
+
+        /* ================= LINKS ================= */
+
+        a {
+            color: var(--blue);
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 11px 18px;
+            border-radius: 9px;
+            background: var(--blue);
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .button:hover {
+            background: var(--blue-dark);
+        }
+
+        .button.secondary {
+            background: white;
+            color: var(--blue);
+            border: 1px solid #bfdbfe;
+        }
+
+        /* ================= FOOTER ================= */
+
         footer {
-            background: #0f172a;
-            color: #cbd5e1;
+            background: var(--navy);
+            color: #94a3b8;
+            padding: 50px 25px;
+            margin-top: 70px;
             text-align: center;
-            padding: 45px 20px;
-            margin-top: 60px;
         }
 
         footer h3 {
             color: white;
-            margin-top: 0;
+            margin: 0 0 8px;
+            font-size: 21px;
+        }
+
+        footer p {
+            font-size: 13px;
+            margin-bottom: 7px;
         }
 
         footer a {
             color: #60a5fa;
         }
 
-        @media (max-width: 700px) {
+        /* ================= RESPONSIVE ================= */
 
-            .nav a {
+        @media (max-width: 800px) {
+
+            .nav-links {
                 display: none;
+            }
+
+            .hero {
+                padding: 65px 20px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            .hero-description {
+                font-size: 17px;
+            }
+
+            .paper-section {
+                padding: 27px 22px;
             }
 
             .metrics {
                 grid-template-columns: 1fr;
             }
 
-            section {
-                padding: 25px;
+            .artifact-grid {
+                grid-template-columns: 1fr;
             }
 
-            .hero {
-                padding: 60px 6%;
-            }
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+
+<!-- ================= NAVIGATION ================= -->
+
 <header>
 
-    <div class="nav">
+    <nav class="nav">
 
-        <div class="logo">
+        <a href="#" class="brand">
             Fatima <span>Iqbal</span>
-        </div>
+        </a>
 
-        <div>
+        <div class="nav-links">
             <a href="#abstract">Abstract</a>
             <a href="#data">Data</a>
             <a href="#methodology">Methodology</a>
@@ -300,18 +514,18 @@
             <a href="#recommendations">Recommendations</a>
         </div>
 
-    </div>
+    </nav>
 
 </header>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
-<div class="hero">
+<section class="hero">
 
-    <div class="hero-content">
+    <div class="hero-inner">
 
-        <div class="tag">
+        <div class="eyebrow">
             FLYRANK ML INTERNSHIP · CAPSTONE RESEARCH
         </div>
 
@@ -319,93 +533,113 @@
             Content Opportunity Scoring for Search Review Prioritization
         </h1>
 
-        <p class="subtitle">
+        <p class="hero-description">
             A data-driven analysis of observable search-performance
             signals for prioritizing content pages for review or refresh.
         </p>
 
-        <p class="author">
-            <strong>Author:</strong> Fatima Iqbal
-            &nbsp; · &nbsp;
-            <strong>Focus:</strong> Machine Learning & Search Intelligence
-        </p>
+        <div class="author-row">
+
+            <span>
+                <strong>Author:</strong> Fatima Iqbal
+            </span>
+
+            <span>•</span>
+
+            <span>
+                <strong>Focus:</strong> Machine Learning & Search Intelligence
+            </span>
+
+        </div>
 
     </div>
-
-</div>
-
-
-<div class="container">
-
-
-<!-- ABSTRACT -->
-
-<section id="abstract">
-
-    <h2>Abstract</h2>
-
-    <p>
-        This study asks which observable search-performance signals
-        can be combined into a repeatable score for prioritizing
-        content pages for refresh or review.
-    </p>
-
-    <p>
-        Using anonymized FlyRank internship search and analytics
-        data, the analysis evaluates search, traffic, engagement,
-        content-age, and trend signals.
-    </p>
-
-    <p>
-        A Random Forest classifier is compared with a majority-class
-        baseline using client-grouped validation and leakage checks.
-    </p>
-
-    <p>
-        The Random Forest achieved 57.24% accuracy compared with
-        54.21% for the majority baseline, while the original random
-        split achieved 70.13%.
-    </p>
-
-    <p>
-        The results are treated as directional decision-support
-        evidence rather than a causal explanation of Google's ranking
-        system or a guarantee that refreshing content will improve
-        performance.
-    </p>
 
 </section>
 
 
-<!-- INTRODUCTION -->
+<main class="container">
 
-<section id="introduction">
 
-    <h2>1. Introduction / Problem Statement</h2>
+<!-- ================= ABSTRACT ================= -->
+
+<section class="paper-section" id="abstract">
+
+    <div class="section-number">01 · Research Summary</div>
+
+    <h2>Abstract</h2>
+
+    <div class="abstract">
+
+        <p>
+            This study asks which observable search-performance
+            signals can be combined into a repeatable score for
+            prioritizing content pages for refresh or review.
+        </p>
+
+        <p>
+            Using anonymized FlyRank internship search and analytics
+            data, the analysis evaluates search, traffic, engagement,
+            content-age, and trend signals.
+        </p>
+
+        <p>
+            A Random Forest classifier is compared with a
+            majority-class baseline using client-grouped validation
+            and leakage checks.
+        </p>
+
+        <p>
+            The Random Forest achieved 57.24% accuracy compared with
+            54.21% for the majority baseline, while the original
+            random split achieved 70.13%.
+        </p>
+
+        <p>
+            The results are treated as directional decision-support
+            evidence rather than a causal explanation of Google's
+            ranking system or a guarantee that refreshing content
+            will improve performance.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= INTRODUCTION ================= -->
+
+<section class="paper-section" id="introduction">
+
+    <div class="section-number">02 · Research Context</div>
+
+    <h2>Introduction & Problem Statement</h2>
 
     <p>
-        Content teams may have many pages that could potentially
-        be reviewed, while having limited time to inspect every page
-        in equal detail.
+        Content teams may manage large collections of pages while
+        having limited time to inspect every page with equal depth.
+        A repeatable prioritization method can help direct human
+        attention toward pages that show signals worth investigating.
     </p>
 
     <p>
         This project investigates whether observable
-        search-performance signals can help prioritize which content
-        pages should receive human review first.
+        search-performance signals can help prioritize content pages
+        for human review.
     </p>
 
-    <div class="question">
 
-        <strong>Research Question</strong>
+    <div class="research-question">
 
-        <br><br>
+        <div class="label">Research Question</div>
 
-        Which observable search-performance signals can be combined
-        into a repeatable score to identify content pages that should
-        be prioritized for refresh or review?
+        <div class="question">
+            Which observable search-performance signals can be combined
+            into a repeatable score to identify content pages that
+            should be prioritized for refresh or review?
+        </div>
 
     </div>
+
 
     <h3>Decision Supported</h3>
 
@@ -424,11 +658,13 @@
 </section>
 
 
-<!-- DATA -->
+<!-- ================= DATA ================= -->
 
-<section id="data">
+<section class="paper-section" id="data">
 
-    <h2>2. Data</h2>
+    <div class="section-number">03 · Dataset</div>
+
+    <h2>Data</h2>
 
     <p>
         This study uses the FlyRank internship warehouse release,
@@ -443,15 +679,88 @@
         domains, URLs, private queries, or raw exports.
     </p>
 
+
     <h3>Primary Signals</h3>
 
     <ul>
-        <li><strong>gsc_impressions</strong> — observed search visibility</li>
-        <li><strong>gsc_clicks</strong> — observed search clicks</li>
-        <li><strong>gsc_avg_position</strong> — observed average search position</li>
-        <li><strong>ga4_pageviews</strong> — observed page traffic</li>
-        <li><strong>scroll_events</strong> — observed engagement activity</li>
+
+        <li>
+            <strong>gsc_impressions</strong> — observed search visibility
+        </li>
+
+        <li>
+            <strong>gsc_clicks</strong> — observed search clicks
+        </li>
+
+        <li>
+            <strong>gsc_avg_position</strong> — observed average search position
+        </li>
+
+        <li>
+            <strong>ga4_pageviews</strong> — observed page traffic
+        </li>
+
+        <li>
+            <strong>scroll_events</strong> — observed engagement activity
+        </li>
+
     </ul>
+
+
+    <h3>Analysis Features</h3>
+
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Feature Group</th>
+                    <th>Examples</th>
+                    <th>Purpose</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Search Demand</td>
+                    <td>search_volume, competition, cpc</td>
+                    <td>Represent demand and competitive context</td>
+                </tr>
+
+                <tr>
+                    <td>Content</td>
+                    <td>word_count, content_age_days</td>
+                    <td>Represent content characteristics</td>
+                </tr>
+
+                <tr>
+                    <td>Visibility</td>
+                    <td>impressions_90d, avg_position</td>
+                    <td>Represent observed search visibility</td>
+                </tr>
+
+                <tr>
+                    <td>Traffic</td>
+                    <td>clicks_90d, sessions_90d</td>
+                    <td>Represent observed traffic</td>
+                </tr>
+
+                <tr>
+                    <td>Engagement</td>
+                    <td>ctr, engagement_rate, scroll_rate</td>
+                    <td>Represent user interaction signals</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
 
     <h3>Excluded Signals</h3>
 
@@ -461,6 +770,7 @@
         values and the signals were not sufficiently dense for the
         main analysis.
     </p>
+
 
     <h3>Data Safety</h3>
 
@@ -473,7 +783,6 @@
     <div class="note">
 
         <strong>Public-safe framing:</strong>
-
         Missing or unavailable measurements are not treated as
         evidence of poor content performance.
 
@@ -482,11 +791,13 @@
 </section>
 
 
-<!-- METHODOLOGY -->
+<!-- ================= METHODOLOGY ================= -->
 
-<section id="methodology">
+<section class="paper-section" id="methodology">
 
-    <h2>3. Methodology</h2>
+    <div class="section-number">04 · Research Design</div>
+
+    <h2>Methodology</h2>
 
     <p>
         The project uses a repeatable content-opportunity scoring
@@ -494,9 +805,11 @@
         human review rather than predict Google's ranking system.
     </p>
 
-    <h3>Features</h3>
+
+    <h3>Feature Set</h3>
 
     <ul>
+
         <li>search_volume</li>
         <li>competition</li>
         <li>cpc</li>
@@ -511,7 +824,9 @@
         <li>scroll_rate</li>
         <li>ai_traffic_pct</li>
         <li>trend_pct</li>
+
     </ul>
+
 
     <h3>Opportunity Definition</h3>
 
@@ -528,50 +843,62 @@
         prediction of refresh success.
     </p>
 
+
     <h3>Signal Audit</h3>
 
     <p>
         The distributions of the main numeric fields were inspected.
         Several features showed strong right-skew and heavy tails.
-    </p>
-
-    <p>
         Because extreme observations can strongly affect averages,
         the analysis uses medians, grouped comparisons, and
         directional interpretation where appropriate.
     </p>
 
-    <h3>Baseline</h3>
 
-    <p>
-        The baseline for classification validation is the
-        majority-class prediction on the same client-grouped
-        test set.
-    </p>
+    <h3>Baseline</h3>
 
     <div class="metrics">
 
         <div class="metric">
-            <strong>30,000</strong>
-            <span>Total observations</span>
+
+            <span class="metric-value">30K</span>
+
+            <span class="metric-label">
+                Total observations
+            </span>
+
         </div>
 
-        <div class="metric">
-            <strong>54.21%</strong>
-            <span>Majority baseline</span>
-        </div>
 
         <div class="metric">
-            <strong>57.24%</strong>
-            <span>Grouped model accuracy</span>
+
+            <span class="metric-value">54.21%</span>
+
+            <span class="metric-label">
+                Majority baseline
+            </span>
+
+        </div>
+
+
+        <div class="metric">
+
+            <span class="metric-value">57.24%</span>
+
+            <span class="metric-label">
+                Grouped model accuracy
+            </span>
+
         </div>
 
     </div>
+
 
     <p>
         The dataset contained 16,262 declining observations and
         13,738 non-declining observations.
     </p>
+
 
     <h3>Proposed Model</h3>
 
@@ -582,6 +909,7 @@
         age, and categorical features while excluding identifiers
         and target-derived fields.
     </p>
+
 
     <h3>Validation Design</h3>
 
@@ -598,6 +926,7 @@
         training and testing groups.
     </p>
 
+
     <h3>Leakage Checks</h3>
 
     <p>
@@ -607,6 +936,7 @@
     </p>
 
     <ul>
+
         <li>trend_direction</li>
         <li>trend_pct</li>
         <li>impressions_last_30d</li>
@@ -617,16 +947,19 @@
         <li>sessions_prev_30d</li>
         <li>client_id</li>
         <li>content_id</li>
+
     </ul>
 
 </section>
 
 
-<!-- RESULTS -->
+<!-- ================= RESULTS ================= -->
 
-<section id="results">
+<section class="paper-section" id="results">
 
-    <h2>4. Results</h2>
+    <div class="section-number">05 · Evidence</div>
+
+    <h2>Results</h2>
 
     <p>
         The final validation was compared against a simple
@@ -634,16 +967,19 @@
         evaluation framework.
     </p>
 
-    <div class="table-wrap">
+
+    <div class="table-wrapper">
 
         <table>
 
             <thead>
+
                 <tr>
                     <th>Approach</th>
-                    <th>Validation</th>
+                    <th>Validation Design</th>
                     <th>Accuracy</th>
                 </tr>
+
             </thead>
 
             <tbody>
@@ -672,6 +1008,7 @@
 
     </div>
 
+
     <h3>Model vs Baseline</h3>
 
     <p>
@@ -681,78 +1018,91 @@
     </p>
 
     <p>
-        This is an improvement of approximately
+        This represents an improvement of approximately
         <strong>3.03 percentage points</strong> over the majority
         baseline.
     </p>
 
+
     <h3>Random Split vs Grouped Split</h3>
 
-    <div class="table-wrap">
+    <div class="metrics">
 
-        <table>
+        <div class="metric">
 
-            <thead>
-                <tr>
-                    <th>Validation Design</th>
-                    <th>Accuracy</th>
-                </tr>
-            </thead>
+            <span class="metric-value">70.13%</span>
 
-            <tbody>
+            <span class="metric-label">
+                Original random split
+            </span>
 
-                <tr>
-                    <td>Original random split</td>
-                    <td><strong>70.13%</strong></td>
-                </tr>
+        </div>
 
-                <tr>
-                    <td>Client-grouped split</td>
-                    <td><strong>57.24%</strong></td>
-                </tr>
+        <div class="metric">
 
-            </tbody>
+            <span class="metric-value">57.24%</span>
 
-        </table>
+            <span class="metric-label">
+                Client-grouped split
+            </span>
+
+        </div>
+
+        <div class="metric">
+
+            <span class="metric-value">+3.03pp</span>
+
+            <span class="metric-label">
+                Improvement vs baseline
+            </span>
+
+        </div>
 
     </div>
+
 
     <h3>Key Findings</h3>
 
     <div class="finding">
+        <strong>1.</strong>
         The model performed modestly above the majority-class
         baseline under client-grouped validation.
     </div>
 
     <div class="finding">
+        <strong>2.</strong>
         The random-split result was substantially higher than the
         client-grouped result.
     </div>
 
     <div class="finding">
+        <strong>3.</strong>
         The grouped result provides a more conservative estimate
         of performance on unseen clients.
     </div>
 
     <div class="finding">
+        <strong>4.</strong>
         The tested signals provide directional information that
         can support content-review prioritization.
     </div>
 
     <div class="finding">
-        The evidence is not strong enough to claim that the model
-        will generalize equally well to every new client or content
-        portfolio.
+        <strong>5.</strong>
+        The evidence is not strong enough to claim equal
+        generalization across every new client or content portfolio.
     </div>
 
 </section>
 
 
-<!-- LIMITATIONS -->
+<!-- ================= LIMITATIONS ================= -->
 
-<section id="limitations">
+<section class="paper-section" id="limitations">
 
-    <h2>5. Limitations & Honest Framing</h2>
+    <div class="section-number">06 · Responsible Interpretation</div>
+
+    <h2>Limitations & Honest Framing</h2>
 
     <p>
         This analysis has several important limitations.
@@ -788,30 +1138,33 @@
         </li>
 
         <li>
-            Human review is required before making content, refresh,
-            merge, rewrite, or removal decisions.
+            Human review is required before making content,
+            refresh, merge, rewrite, or removal decisions.
         </li>
 
     </ul>
 
+
     <div class="note">
 
         <strong>Honest framing:</strong>
-
-        The results are observed, measured, directional,
-        and intended for decision support. They do not predict
-        Google's algorithm or establish causal refresh impact.
+        Results are described as observed, measured, directional,
+        and intended for decision support. This research does not
+        claim to predict Google's algorithm or establish causal
+        refresh impact.
 
     </div>
 
 </section>
 
 
-<!-- RECOMMENDATIONS -->
+<!-- ================= RECOMMENDATIONS ================= -->
 
-<section id="recommendations">
+<section class="paper-section" id="recommendations">
 
-    <h2>6. Ranked Recommendations</h2>
+    <div class="section-number">07 · Action Playbook</div>
+
+    <h2>Ranked Recommendations</h2>
 
     <p>
         The analysis supports a review-prioritization workflow rather
@@ -821,7 +1174,9 @@
 
     <div class="recommendation">
 
-        <div class="priority">PRIORITY 1</div>
+        <div class="priority">
+            Priority 01
+        </div>
 
         <h3>Review Declining Pages</h3>
 
@@ -831,9 +1186,8 @@
             performance indicators also appear weak.
         </p>
 
-        <strong>Recommended action:</strong>
-
         <p>
+            <strong>Recommended action:</strong>
             Inspect the page before deciding whether to refresh,
             improve, merge, or monitor it.
         </p>
@@ -843,7 +1197,9 @@
 
     <div class="recommendation">
 
-        <div class="priority">PRIORITY 2</div>
+        <div class="priority">
+            Priority 02
+        </div>
 
         <h3>Review Weak-Engagement Pages</h3>
 
@@ -853,11 +1209,10 @@
             alignment with user intent.
         </p>
 
-        <strong>Recommended action:</strong>
-
         <p>
-            Review content quality and user experience before making
-            changes.
+            <strong>Recommended action:</strong>
+            Review content quality and user experience before
+            making changes.
         </p>
 
     </div>
@@ -865,7 +1220,9 @@
 
     <div class="recommendation">
 
-        <div class="priority">PRIORITY 3</div>
+        <div class="priority">
+            Priority 03
+        </div>
 
         <h3>Review High-Demand Pages With Weak Visibility</h3>
 
@@ -875,9 +1232,8 @@
             further investigation.
         </p>
 
-        <strong>Recommended action:</strong>
-
         <p>
+            <strong>Recommended action:</strong>
             Review search intent, content coverage, internal linking,
             metadata, and current positioning.
         </p>
@@ -887,7 +1243,9 @@
 
     <div class="recommendation">
 
-        <div class="priority">PRIORITY 4</div>
+        <div class="priority">
+            Priority 04
+        </div>
 
         <h3>Review Aging Content</h3>
 
@@ -897,9 +1255,8 @@
             declining or weak performance signals.
         </p>
 
-        <strong>Recommended action:</strong>
-
         <p>
+            <strong>Recommended action:</strong>
             Compare older pages against recent performance before
             selecting a refresh action.
         </p>
@@ -909,19 +1266,20 @@
 
     <div class="recommendation">
 
-        <div class="priority">PRIORITY 5</div>
+        <div class="priority">
+            Priority 05
+        </div>
 
-        <h3>Monitor Instead of Automatically Changing</h3>
+        <h3>Monitor Mixed-Signal Pages</h3>
 
         <p>
-            Pages with mixed or conflicting signals should remain
-            in a monitoring queue rather than receiving an automatic
+            Pages with conflicting signals should remain in a
+            monitoring queue rather than receiving an automatic
             action.
         </p>
 
-        <strong>Recommended action:</strong>
-
         <p>
+            <strong>Recommended action:</strong>
             Collect additional observations and use human judgment
             before making a major content change.
         </p>
@@ -931,11 +1289,89 @@
 </section>
 
 
-<!-- REPRODUCIBILITY -->
+<!-- ================= ARTIFACTS ================= -->
 
-<section id="reproducibility">
+<section class="paper-section">
 
-    <h2>7. Reproducibility</h2>
+    <div class="section-number">08 · Research Artifacts</div>
+
+    <h2>Evidence Artifacts</h2>
+
+    <p>
+        The following artifacts support the analysis and provide
+        evidence behind the conclusions presented in this paper.
+    </p>
+
+
+    <div class="artifact-grid">
+
+        <div class="artifact">
+
+            <div class="artifact-number">ARTIFACT 01</div>
+
+            <h3>Signal Distribution</h3>
+
+            <p>
+                Feature-distribution and skewness analysis showing
+                heavy-tailed search and traffic variables.
+            </p>
+
+        </div>
+
+
+        <div class="artifact">
+
+            <div class="artifact-number">ARTIFACT 02</div>
+
+            <h3>Signal Tests</h3>
+
+            <p>
+                Grouped comparisons covering trend, engagement,
+                search demand, sessions, and impressions.
+            </p>
+
+        </div>
+
+
+        <div class="artifact">
+
+            <div class="artifact-number">ARTIFACT 03</div>
+
+            <h3>Validation Comparison</h3>
+
+            <p>
+                Comparison of random-split, client-grouped, and
+                majority-baseline performance.
+            </p>
+
+        </div>
+
+
+        <div class="artifact">
+
+            <div class="artifact-number">ARTIFACT 04</div>
+
+            <h3>Leakage Audit</h3>
+
+            <p>
+                Documentation of target-derived and identifier
+                features excluded from the final model.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REPRODUCIBILITY ================= -->
+
+<section class="paper-section">
+
+    <div class="section-number">09 · Reproducibility</div>
+
+    <h2>Reproducibility</h2>
 
     <p>
         The analysis is maintained in the public GitHub repository.
@@ -943,32 +1379,36 @@
         supporting evidence.
     </p>
 
-    <p>
-        <strong>GitHub Repository:</strong><br>
 
-        <a href="https://github.com/fatimaiqbal34/Task1-Week1"
-           target="_blank">
-            github.com/fatimaiqbal34/Task1-Week1
+    <div class="button-row">
+
+        <a
+            class="button"
+            href="https://github.com/fatimaiqbal34/Task1-Week1"
+            target="_blank">
+            View GitHub Repository
         </a>
-    </p>
 
-    <p>
-        <strong>Capstone Notebook:</strong><br>
 
-        <a href="https://github.com/fatimaiqbal34/Task1-Week1/blob/main/work/notebooks/capstone.ipynb"
-           target="_blank">
-            work/notebooks/capstone.ipynb
+        <a
+            class="button secondary"
+            href="https://github.com/fatimaiqbal34/Task1-Week1/blob/main/work/notebooks/capstone.ipynb"
+            target="_blank">
+            View Capstone Notebook
         </a>
-    </p>
+
+    </div>
 
 </section>
 
 
-<!-- ACKNOWLEDGMENTS -->
+<!-- ================= ACKNOWLEDGMENTS ================= -->
 
-<section id="acknowledgments">
+<section class="paper-section">
 
-    <h2>8. Acknowledgments & Data Credit</h2>
+    <div class="section-number">10 · Data Credit</div>
+
+    <h2>Acknowledgments & Data Credit</h2>
 
     <p>
         <strong>Built on the FlyRank ML Internship dataset.</strong>
@@ -980,18 +1420,28 @@
         machine learning, validation, and decision-support analysis.
     </p>
 
-    <p>
-        <a href="https://flyrank.ai"
-           target="_blank">
+    <div class="success-note">
+
+        Data credit is included as part of the public research
+        artifact and follows standard research attribution practice.
+
+        <br><br>
+
+        <a
+            href="https://flyrank.ai"
+            target="_blank">
             Visit FlyRank
         </a>
-    </p>
+
+    </div>
 
 </section>
 
 
-</div>
+</main>
 
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -1006,14 +1456,20 @@
     </p>
 
     <p>
-        <a href="https://github.com/fatimaiqbal34/Task1-Week1"
-           target="_blank">
-            View GitHub Repository
+        <a
+            href="https://github.com/fatimaiqbal34/Task1-Week1"
+            target="_blank">
+            GitHub Repository
         </a>
+    </p>
+
+    <p>
+        © 2026 Fatima Iqbal
     </p>
 
 </footer>
 
 
 </body>
+
 </html>
