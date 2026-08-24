@@ -71,6 +71,7 @@ The public research artifact excludes:
 - Client and content identifiers as predictive features
 
 Sparse AI-referral fields were not used as primary opportunity signals where their density was insufficient.
+
 ## 5. Methodology
 
 The workflow is:
@@ -143,11 +144,13 @@ The original random split produced:
 
 Because observations from the same client may be related, a more conservative client-grouped validation was also performed using `GroupShuffleSplit`.
 
-The client-grouped evaluation kept records from the same client together.
+The client-grouped validation kept records from the same client together rather than allowing the same client to appear in both training and testing data.
 
 This produced:
 
 **57.24% accuracy**
+
+The grouped result is treated as the more conservative estimate of generalization to unseen clients.
 
 ## 7. V2 Evaluation Results
 
@@ -168,6 +171,15 @@ That is an improvement of approximately:
 The original random split produced 70.13%, which is substantially higher.
 
 The grouped result is therefore treated as the more conservative estimate of performance on unseen clients.
+
+### Interpretation
+
+The result provides modest evidence that the selected observable signals contain useful information for prioritizing content review.
+
+However, the improvement is not large enough to justify automatic content decisions.
+
+The model should therefore be used to help decide **where to investigate first**, with the final decision remaining with a human reviewer.
+
 ## 8. Architecture
 
 ```text
