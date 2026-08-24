@@ -6,8 +6,6 @@
 
 A decision-support framework for prioritizing content observations that may deserve earlier human review.
 
----
-
 ## 1. What This Project Does
 
 Content teams may have many pages to review while search visibility, traffic, engagement, search demand, content age, and trend signals change at different rates.
@@ -22,8 +20,6 @@ The output is intended as a **review-prioritization tool**, not an automatic con
 
 It does not predict Google's ranking algorithm and does not claim that refreshing a page will cause better performance.
 
----
-
 ## 2. Who Is It For?
 
 This project is designed for:
@@ -36,13 +32,9 @@ This project is designed for:
 
 The main user is a reviewer who needs to decide **where to investigate first**.
 
----
-
 ## 3. Research Question
 
 Which observable search-performance signals can be combined into a repeatable score to identify content pages that should be prioritized for refresh or human review?
-
----
 
 ## 4. Data
 
@@ -79,9 +71,6 @@ The public research artifact excludes:
 - Client and content identifiers as predictive features
 
 Sparse AI-referral fields were not used as primary opportunity signals where their density was insufficient.
-
----
-
 ## 5. Methodology
 
 The workflow is:
@@ -146,8 +135,6 @@ Identifiers such as:
 
 were also excluded.
 
----
-
 ## 6. Validation
 
 The original random split produced:
@@ -161,8 +148,6 @@ The client-grouped evaluation kept records from the same client together.
 This produced:
 
 **57.24% accuracy**
-
----
 
 ## 7. V2 Evaluation Results
 
@@ -183,9 +168,6 @@ That is an improvement of approximately:
 The original random split produced 70.13%, which is substantially higher.
 
 The grouped result is therefore treated as the more conservative estimate of performance on unseen clients.
-
----
-
 ## 8. Architecture
 
 ```text
