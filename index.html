@@ -2,20 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Content Opportunity Scoring | Fatima Iqbal</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="FlyRank ML Internship Capstone Research — Content Opportunity Scoring for Search Performance Review by Fatima Iqbal.">
+          content="Content Opportunity Scoring for Search Performance Review — FlyRank ML Internship Capstone Research by Fatima Iqbal.">
 
-    <meta name="author" content="Fatima Iqbal">
+    <meta name="author"
+          content="Fatima Iqbal">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="robots"
+          content="index, follow">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
-          rel="stylesheet">
+    <link rel="canonical"
+          href="https://fatimaiqbal34.github.io/Task1-week1/">
+
+    <title>
+        Content Opportunity Scoring | Fatima Iqbal | FlyRank ML Internship
+    </title>
 
     <style>
 
@@ -34,19 +39,22 @@
         }
 
         body {
-            font-family: "Inter", sans-serif;
-            background: #f7f9fc;
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: #f8fafc;
             color: #172033;
             line-height: 1.75;
         }
 
         a {
             color: inherit;
-            text-decoration: none;
-        }
-
-        img {
-            max-width: 100%;
         }
 
         /* =========================
@@ -57,44 +65,61 @@
             --blue: #2563eb;
             --blue-dark: #1d4ed8;
             --blue-light: #eff6ff;
+
             --navy: #0f172a;
             --text: #172033;
             --muted: #64748b;
-            --border: #e2e8f0;
+
             --white: #ffffff;
+            --border: #e2e8f0;
+
             --green: #059669;
-            --orange: #ea580c;
-            --purple: #7c3aed;
-            --shadow: 0 15px 45px rgba(15, 23, 42, 0.08);
+            --green-light: #ecfdf5;
+
+            --orange: #d97706;
+            --orange-light: #fffbeb;
+
+            --red: #dc2626;
+            --red-light: #fef2f2;
+
+            --shadow:
+                0 10px 30px rgba(15, 23, 42, 0.07);
         }
 
         /* =========================
-           NAVBAR
+           HEADER
         ========================= */
 
-        .navbar {
+        header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255,255,255,0.94);
+
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(12px);
+
             border-bottom: 1px solid var(--border);
         }
 
-        .nav-container {
+        .nav {
             max-width: 1180px;
             margin: auto;
-            padding: 16px 24px;
+
+            min-height: 72px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 25px;
+
+            padding: 0 24px;
         }
 
         .brand {
-            font-size: 20px;
+            text-decoration: none;
+            font-size: 1.15rem;
             font-weight: 800;
             color: var(--navy);
+            white-space: nowrap;
         }
 
         .brand span {
@@ -103,16 +128,20 @@
 
         .nav-links {
             display: flex;
+            align-items: center;
             gap: 18px;
+
             list-style: none;
-            flex-wrap: wrap;
         }
 
         .nav-links a {
-            font-size: 13px;
-            font-weight: 600;
+            text-decoration: none;
             color: #475569;
-            transition: 0.2s;
+
+            font-size: 0.9rem;
+            font-weight: 650;
+
+            transition: 0.2s ease;
         }
 
         .nav-links a:hover {
@@ -125,209 +154,392 @@
 
         .hero {
             background:
-                radial-gradient(circle at top right, #dbeafe 0, transparent 35%),
-                linear-gradient(135deg, #ffffff, #f1f5f9);
-            padding: 100px 24px 85px;
+                linear-gradient(
+                    135deg,
+                    #eff6ff 0%,
+                    #ffffff 55%,
+                    #f8fafc 100%
+                );
+
             border-bottom: 1px solid var(--border);
         }
 
-        .hero-container {
+        .hero-inner {
             max-width: 1180px;
             margin: auto;
+
+            padding:
+                100px 24px
+                90px;
         }
 
         .eyebrow {
             display: inline-block;
-            padding: 8px 14px;
-            border-radius: 999px;
+
+            margin-bottom: 20px;
+
+            color: var(--blue);
             background: var(--blue-light);
-            color: var(--blue-dark);
-            font-size: 12px;
+
+            border: 1px solid #dbeafe;
+
+            border-radius: 999px;
+
+            padding: 7px 14px;
+
+            font-size: 0.78rem;
             font-weight: 800;
-            letter-spacing: 1px;
+
             text-transform: uppercase;
-            margin-bottom: 25px;
+            letter-spacing: 0.08em;
         }
 
-        .hero h1 {
-            max-width: 900px;
-            font-family: "Playfair Display", serif;
-            font-size: clamp(44px, 7vw, 78px);
-            line-height: 1.08;
+        h1 {
+            max-width: 950px;
+
+            font-size:
+                clamp(2.5rem, 6vw, 5rem);
+
+            line-height: 1.04;
+
+            letter-spacing: -0.045em;
+
             color: var(--navy);
+
             margin-bottom: 25px;
         }
 
         .hero-description {
-            max-width: 760px;
-            font-size: 20px;
-            color: var(--muted);
-            margin-bottom: 25px;
+            max-width: 820px;
+
+            font-size: 1.25rem;
+
+            color: #475569;
+
+            margin-bottom: 28px;
         }
 
         .author {
+            color: #334155;
+
             font-weight: 700;
-            margin-bottom: 32px;
+
+            margin-bottom: 30px;
         }
 
-        .author span {
-            color: var(--blue);
-        }
-
-        .hero-actions {
+        .buttons {
             display: flex;
-            gap: 12px;
             flex-wrap: wrap;
+            gap: 12px;
         }
 
-        .btn {
+        .button {
             display: inline-flex;
+
             align-items: center;
             justify-content: center;
-            padding: 13px 21px;
-            border-radius: 9px;
-            font-weight: 700;
-            font-size: 14px;
-            transition: 0.2s;
+
+            min-height: 46px;
+
+            padding: 0 20px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-weight: 750;
+
+            border: 1px solid transparent;
+
+            transition: 0.2s ease;
         }
 
-        .btn-primary {
+        .button-primary {
             background: var(--blue);
             color: white;
         }
 
-        .btn-primary:hover {
+        .button-primary:hover {
             background: var(--blue-dark);
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
-        .btn-secondary {
+        .button-secondary {
             background: white;
             color: var(--navy);
-            border: 1px solid var(--border);
+            border-color: var(--border);
         }
 
-        .btn-secondary:hover {
-            border-color: var(--blue);
+        .button-secondary:hover {
+            border-color: #bfdbfe;
             color: var(--blue);
         }
 
         /* =========================
-           LAYOUT
+           MAIN
         ========================= */
 
-        .container {
-            max-width: 1050px;
+        main {
+            max-width: 1180px;
             margin: auto;
-            padding: 0 24px;
+
+            padding:
+                50px 24px
+                100px;
         }
 
         section {
-            padding: 85px 0;
-            scroll-margin-top: 75px;
+            scroll-margin-top: 100px;
+
+            margin-bottom: 80px;
         }
 
-        section:nth-child(even) {
-            background: #ffffff;
-        }
-
-        .section-number {
+        .section-label {
             color: var(--blue);
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 2px;
+
+            font-size: 0.78rem;
+
+            font-weight: 850;
+
+            letter-spacing: 0.1em;
+
+            text-transform: uppercase;
+
             margin-bottom: 8px;
         }
 
-        .section-title {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(32px, 5vw, 48px);
-            line-height: 1.2;
+        h2 {
             color: var(--navy);
-            margin-bottom: 20px;
-        }
 
-        .section-intro {
-            max-width: 780px;
-            font-size: 17px;
-            color: var(--muted);
-            margin-bottom: 35px;
+            font-size:
+                clamp(1.8rem, 4vw, 2.7rem);
+
+            line-height: 1.15;
+
+            letter-spacing: -0.025em;
+
+            margin-bottom: 22px;
         }
 
         h3 {
             color: var(--navy);
+
+            font-size: 1.2rem;
+
+            line-height: 1.3;
+
             margin-bottom: 10px;
         }
 
+        h4 {
+            color: var(--navy);
+
+            font-size: 1rem;
+
+            margin-bottom: 7px;
+        }
+
         p {
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
-        /* =========================
-           ABSTRACT
-        ========================= */
-
-        .abstract-box {
-            background: var(--navy);
-            color: white;
-            padding: 38px;
-            border-radius: 18px;
-            box-shadow: var(--shadow);
+        .lead {
+            font-size: 1.1rem;
+            color: #475569;
         }
 
-        .abstract-box p {
-            color: #dbe4f0;
-            font-size: 17px;
+        .muted {
+            color: var(--muted);
         }
 
-        .research-framing {
-            margin-top: 25px;
-            padding: 18px 20px;
-            border-left: 4px solid #60a5fa;
-            background: rgba(255,255,255,0.08);
-            border-radius: 6px;
+        strong {
+            color: var(--navy);
+        }
+
+        code {
+            background: #eef2ff;
+            color: #3730a3;
+
+            padding: 2px 7px;
+
+            border-radius: 5px;
+
+            font-size: 0.9em;
         }
 
         /* =========================
            CARDS
         ========================= */
 
-        .grid {
+        .card-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
 
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 18px;
+
+            margin-top: 30px;
         }
 
         .card {
             background: white;
+
             border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 28px;
-            box-shadow: 0 8px 25px rgba(15,23,42,0.04);
+
+            border-radius: 16px;
+
+            padding: 25px;
+
+            box-shadow: var(--shadow);
         }
 
-        .card-icon {
-            width: 44px;
-            height: 44px;
-            display: flex;
+        .card:hover {
+            border-color: #bfdbfe;
+        }
+
+        .card-number {
+            display: inline-flex;
+
             align-items: center;
             justify-content: center;
+
+            width: 38px;
+            height: 38px;
+
+            border-radius: 10px;
+
             background: var(--blue-light);
             color: var(--blue);
-            border-radius: 10px;
-            font-weight: 800;
+
+            font-weight: 850;
+
             margin-bottom: 18px;
         }
 
-        .card p {
-            color: var(--muted);
-            font-size: 14px;
+        /* =========================
+           INFO BOXES
+        ========================= */
+
+        .info-box {
+            background: var(--blue-light);
+
+            border: 1px solid #dbeafe;
+
+            border-left: 4px solid var(--blue);
+
+            border-radius: 12px;
+
+            padding: 22px 24px;
+
+            margin: 24px 0;
+        }
+
+        .success-box {
+            background: var(--green-light);
+
+            border: 1px solid #a7f3d0;
+
+            border-left: 4px solid var(--green);
+
+            border-radius: 12px;
+
+            padding: 22px 24px;
+
+            margin: 24px 0;
+        }
+
+        .warning-box {
+            background: var(--orange-light);
+
+            border: 1px solid #fde68a;
+
+            border-left: 4px solid var(--orange);
+
+            border-radius: 12px;
+
+            padding: 22px 24px;
+
+            margin: 24px 0;
+        }
+
+        /* =========================
+           DATA CARDS
+        ========================= */
+
+        .data-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 15px;
+
+            margin: 30px 0;
+        }
+
+        .data-card {
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 20px;
+        }
+
+        .data-card .letter {
+            color: var(--blue);
+
+            font-weight: 900;
+
+            font-size: 1.4rem;
+
+            margin-bottom: 10px;
+        }
+
+        .data-card strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* =========================
+           FEATURE LIST
+        ========================= */
+
+        .feature-list {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 10px;
+
+            list-style: none;
+
+            margin: 20px 0;
+        }
+
+        .feature-list li {
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 9px;
+
+            padding: 10px 13px;
+
+            color: #334155;
+
+            font-family:
+                ui-monospace,
+                SFMono-Regular,
+                Menlo,
+                Monaco,
+                Consolas,
+                monospace;
+
+            font-size: 0.83rem;
         }
 
         /* =========================
@@ -336,157 +548,39 @@
 
         .stats {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin: 35px 0;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 16px;
+
+            margin: 30px 0;
         }
 
         .stat {
-            background: white;
-            border: 1px solid var(--border);
-            padding: 25px;
-            border-radius: 14px;
-        }
+            background: var(--navy);
 
-        .stat strong {
-            display: block;
-            font-size: 30px;
-            color: var(--blue);
-            line-height: 1.2;
-            margin-bottom: 8px;
-        }
-
-        .stat span {
-            color: var(--muted);
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        /* =========================
-           FEATURE TAGS
-        ========================= */
-
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 9px;
-            margin: 20px 0 35px;
-        }
-
-        .feature {
-            background: #eef4ff;
-            color: #1e40af;
-            border: 1px solid #dbeafe;
-            padding: 8px 12px;
-            border-radius: 7px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .code-list {
-            background: #0f172a;
-            color: #dbeafe;
-            padding: 25px;
-            border-radius: 12px;
-            overflow-x: auto;
-            font-family: monospace;
-            font-size: 13px;
-            line-height: 2;
-        }
-
-        /* =========================
-           METHODOLOGY STEPS
-        ========================= */
-
-        .steps {
-            display: grid;
-            gap: 16px;
-            margin-top: 30px;
-        }
-
-        .step {
-            display: grid;
-            grid-template-columns: 52px 1fr;
-            gap: 18px;
-            background: white;
-            border: 1px solid var(--border);
-            padding: 22px;
-            border-radius: 13px;
-        }
-
-        .step-number {
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: var(--blue);
             color: white;
-            font-weight: 800;
+
+            border-radius: 16px;
+
+            padding: 25px;
         }
 
-        .step p {
-            color: var(--muted);
-            margin-bottom: 0;
-        }
+        .stat-value {
+            font-size: 2rem;
 
-        /* =========================
-           RESULTS
-        ========================= */
+            font-weight: 900;
 
-        .result-highlight {
-            background: linear-gradient(135deg, #eff6ff, #ffffff);
-            border: 1px solid #bfdbfe;
-            border-radius: 18px;
-            padding: 32px;
-            margin-bottom: 30px;
-        }
+            line-height: 1.1;
 
-        .result-highlight h3 {
-            font-size: 24px;
-        }
-
-        .comparison {
-            margin: 35px 0;
-        }
-
-        .bar-row {
-            margin-bottom: 24px;
-        }
-
-        .bar-label {
-            display: flex;
-            justify-content: space-between;
-            font-weight: 700;
             margin-bottom: 8px;
         }
 
-        .bar {
-            height: 15px;
-            background: #e2e8f0;
-            border-radius: 999px;
-            overflow: hidden;
-        }
+        .stat-label {
+            color: #cbd5e1;
 
-        .bar-fill {
-            height: 100%;
-            border-radius: 999px;
-            background: var(--blue);
-        }
-
-        .bar-fill.baseline {
-            width: 54.21%;
-        }
-
-        .bar-fill.model {
-            width: 57.24%;
-            background: var(--green);
-        }
-
-        .bar-fill.random {
-            width: 70.13%;
-            background: var(--orange);
+            font-size: 0.9rem;
         }
 
         /* =========================
@@ -495,78 +589,150 @@
 
         .table-wrapper {
             overflow-x: auto;
-            margin: 30px 0;
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            box-shadow: var(--shadow);
+
+            margin: 25px 0;
         }
 
         table {
             width: 100%;
+
             border-collapse: collapse;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
+
+            min-width: 620px;
         }
 
         th,
         td {
             text-align: left;
+
             padding: 15px 18px;
+
             border-bottom: 1px solid var(--border);
         }
 
         th {
-            background: #f1f5f9;
+            background: #f8fafc;
+
             color: var(--navy);
-            font-size: 13px;
+
+            font-size: 0.86rem;
+
+            font-weight: 800;
         }
 
         td {
-            font-size: 14px;
             color: #475569;
+
+            font-size: 0.92rem;
         }
 
-        td strong {
-            color: var(--navy);
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .highlight {
+            color: var(--blue);
+
+            font-weight: 850;
+        }
+
+        /* =========================
+           METHODOLOGY
+        ========================= */
+
+        .workflow {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 18px;
+
+            margin-top: 30px;
+        }
+
+        .workflow-item {
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 15px;
+
+            padding: 23px;
+        }
+
+        .workflow-number {
+            color: var(--blue);
+
+            font-weight: 900;
+
+            font-size: 0.8rem;
+
+            margin-bottom: 8px;
         }
 
         /* =========================
            RECOMMENDATIONS
         ========================= */
 
-        .recommendations {
-            display: grid;
-            gap: 18px;
-        }
-
         .recommendation {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 28px;
             display: grid;
-            grid-template-columns: 60px 1fr;
-            gap: 20px;
+
+            grid-template-columns: 80px 1fr;
+
+            gap: 22px;
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            padding: 25px;
+
+            margin-bottom: 16px;
+
+            box-shadow: var(--shadow);
         }
 
-        .rank {
-            font-size: 34px;
-            font-weight: 800;
+        .recommendation-number {
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: var(--blue-light);
+
             color: var(--blue);
-        }
 
-        .recommendation p {
-            color: var(--muted);
+            border-radius: 14px;
+
+            font-weight: 900;
+
+            font-size: 1.1rem;
         }
 
         .action {
-            display: inline-block;
-            background: #ecfdf5;
-            color: #047857;
-            border: 1px solid #a7f3d0;
-            padding: 9px 13px;
-            border-radius: 7px;
-            font-size: 13px;
-            font-weight: 600;
+            margin-top: 13px;
+
+            background: #f8fafc;
+
+            border-radius: 9px;
+
+            padding: 12px 15px;
+
+            color: #334155;
         }
 
         /* =========================
@@ -574,67 +740,173 @@
         ========================= */
 
         .limitations {
+            list-style: none;
+
             display: grid;
+
             gap: 12px;
-        }
 
-        .limitation {
-            padding: 17px 20px;
-            background: #fff7ed;
-            border: 1px solid #fed7aa;
-            border-radius: 9px;
-            color: #7c2d12;
-        }
-
-        /* =========================
-           CALLOUT
-        ========================= */
-
-        .callout {
-            padding: 28px;
-            background: var(--blue-light);
-            border: 1px solid #bfdbfe;
-            border-radius: 14px;
-            margin-top: 30px;
-        }
-
-        .callout strong {
-            color: var(--blue-dark);
-        }
-
-        /* =========================
-           REPRODUCIBILITY
-        ========================= */
-
-        .repo-card {
-            background: var(--navy);
-            color: white;
-            padding: 35px;
-            border-radius: 18px;
-        }
-
-        .repo-card p {
-            color: #cbd5e1;
-        }
-
-        .repo-links {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
             margin-top: 25px;
         }
 
-        .repo-link {
-            padding: 11px 15px;
-            border-radius: 8px;
+        .limitations li {
             background: white;
-            color: var(--navy);
-            font-weight: 700;
-            font-size: 13px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 11px;
+
+            padding: 15px 18px;
+
+            position: relative;
+
+            padding-left: 43px;
         }
 
-        .repo-link:hover {
+        .limitations li::before {
+            content: "!";
+            
+            position: absolute;
+
+            left: 16px;
+            top: 15px;
+
+            width: 20px;
+            height: 20px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--orange-light);
+
+            color: var(--orange);
+
+            font-weight: 900;
+
+            font-size: 0.75rem;
+        }
+
+        /* =========================
+           ARTIFACTS
+        ========================= */
+
+        .artifact-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 18px;
+
+            margin-top: 25px;
+        }
+
+        .artifact {
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 22px;
+        }
+
+        .artifact-title {
+            display: flex;
+
+            gap: 10px;
+
+            align-items: center;
+
+            margin-bottom: 10px;
+        }
+
+        .artifact-icon {
+            width: 34px;
+            height: 34px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: var(--blue-light);
+
             color: var(--blue);
+
+            border-radius: 8px;
+
+            font-weight: 900;
+        }
+
+        /* =========================
+           REPOSITORY
+        ========================= */
+
+        .repo-box {
+            background: var(--navy);
+
+            color: white;
+
+            border-radius: 18px;
+
+            padding: 32px;
+
+            margin-top: 25px;
+        }
+
+        .repo-box h3 {
+            color: white;
+        }
+
+        .repo-box p {
+            color: #cbd5e1;
+        }
+
+        .repo-structure {
+            background: #020617;
+
+            border: 1px solid #1e293b;
+
+            border-radius: 10px;
+
+            padding: 18px;
+
+            overflow-x: auto;
+
+            font-family:
+                ui-monospace,
+                SFMono-Regular,
+                Menlo,
+                Monaco,
+                Consolas,
+                monospace;
+
+            font-size: 0.85rem;
+
+            color: #dbeafe;
+
+            margin: 20px 0;
+        }
+
+        /* =========================
+           LINKS
+        ========================= */
+
+        .link {
+            color: var(--blue);
+
+            font-weight: 750;
+
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
         }
 
         /* =========================
@@ -642,35 +914,57 @@
         ========================= */
 
         footer {
-            background: #020617;
+            background: var(--navy);
+
             color: white;
-            padding: 55px 24px;
-            text-align: center;
+
+            padding: 50px 24px;
         }
 
-        footer h2 {
-            font-family: "Playfair Display", serif;
-            font-size: 30px;
-            margin-bottom: 10px;
+        .footer-inner {
+            max-width: 1180px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
         }
 
-        footer p {
+        .footer-title {
+            font-weight: 850;
+
+            font-size: 1.05rem;
+
+            margin-bottom: 6px;
+        }
+
+        .footer-text {
             color: #94a3b8;
-            font-size: 13px;
+
+            font-size: 0.88rem;
         }
 
         .footer-links {
             display: flex;
-            justify-content: center;
+
             flex-wrap: wrap;
-            gap: 18px;
-            margin: 25px 0;
+
+            gap: 16px;
         }
 
         .footer-links a {
-            color: #bfdbfe;
-            font-size: 13px;
-            font-weight: 600;
+            color: #cbd5e1;
+
+            text-decoration: none;
+
+            font-size: 0.88rem;
+
+            font-weight: 700;
         }
 
         .footer-links a:hover {
@@ -681,60 +975,131 @@
            RESPONSIVE
         ========================= */
 
-        @media (max-width: 850px) {
+        @media (max-width: 950px) {
 
-            .nav-container {
-                flex-direction: column;
+            .nav {
                 align-items: flex-start;
+
+                padding-top: 17px;
+                padding-bottom: 17px;
+
+                flex-direction: column;
+
+                gap: 13px;
             }
 
             .nav-links {
-                gap: 10px;
+                width: 100%;
+
+                overflow-x: auto;
+
+                padding-bottom: 4px;
+
+                gap: 15px;
             }
 
-            .grid,
-            .grid-2 {
-                grid-template-columns: 1fr;
+            .card-grid,
+            .workflow,
+            .artifact-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
             }
 
+            .data-grid,
             .stats {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
             }
 
-            .hero {
-                padding-top: 70px;
+            .feature-list {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
             }
-
         }
 
-        @media (max-width: 550px) {
+        @media (max-width: 650px) {
 
-            .stats {
-                grid-template-columns: 1fr;
+            .hero-inner {
+                padding:
+                    65px 20px
+                    55px;
+            }
+
+            main {
+                padding:
+                    35px 20px
+                    70px;
             }
 
             section {
-                padding: 60px 0;
+                margin-bottom: 60px;
             }
 
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .abstract-box,
-            .repo-card {
-                padding: 25px;
+            .card-grid,
+            .workflow,
+            .artifact-grid,
+            .data-grid,
+            .stats,
+            .feature-list {
+                grid-template-columns: 1fr;
             }
 
             .recommendation {
                 grid-template-columns: 1fr;
-                gap: 5px;
             }
 
-            .step {
-                grid-template-columns: 1fr;
+            .recommendation-number {
+                width: 48px;
+                height: 48px;
             }
 
+            .footer-inner {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            h1 {
+                font-size: 2.65rem;
+            }
+
+            .hero-description {
+                font-size: 1.05rem;
+            }
+        }
+
+        /* =========================
+           PRINT
+        ========================= */
+
+        @media print {
+
+            header {
+                position: static;
+            }
+
+            .buttons,
+            .nav-links {
+                display: none;
+            }
+
+            body {
+                background: white;
+            }
+
+            .card,
+            .table-wrapper,
+            .recommendation {
+                box-shadow: none;
+            }
+
+            footer {
+                color: black;
+
+                background: white;
+
+                border-top: 1px solid #ddd;
+            }
         }
 
     </style>
@@ -742,41 +1107,83 @@
 
 <body id="top">
 
-<!-- =====================================================
+<!-- =========================================================
      NAVIGATION
-===================================================== -->
+========================================================= -->
 
-<header class="navbar">
+<header>
 
-    <div class="nav-container">
+    <nav class="nav">
 
-        <a href="#top" class="brand">
-            Fatima<span>Iqbal</span>
+        <a class="brand"
+           href="#top">
+            Fatima <span>Iqbal</span>
         </a>
 
         <ul class="nav-links">
-            <li><a href="#abstract">Abstract</a></li>
-            <li><a href="#problem">Problem</a></li>
-            <li><a href="#data">Data</a></li>
-            <li><a href="#methodology">Methodology</a></li>
-            <li><a href="#results">Results</a></li>
-            <li><a href="#recommendations">Recommendations</a></li>
-            <li><a href="#limitations">Limitations</a></li>
-            <li><a href="#reproducibility">Reproducibility</a></li>
+
+            <li>
+                <a href="#abstract">
+                    Abstract
+                </a>
+            </li>
+
+            <li>
+                <a href="#problem">
+                    Problem
+                </a>
+            </li>
+
+            <li>
+                <a href="#data">
+                    Data
+                </a>
+            </li>
+
+            <li>
+                <a href="#methodology">
+                    Methodology
+                </a>
+            </li>
+
+            <li>
+                <a href="#results">
+                    Results
+                </a>
+            </li>
+
+            <li>
+                <a href="#recommendations">
+                    Recommendations
+                </a>
+            </li>
+
+            <li>
+                <a href="#limitations">
+                    Limitations
+                </a>
+            </li>
+
+            <li>
+                <a href="#reproducibility">
+                    Reproducibility
+                </a>
+            </li>
+
         </ul>
 
-    </div>
+    </nav>
 
 </header>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HERO
-===================================================== -->
+========================================================= -->
 
-<header class="hero">
+<section class="hero">
 
-    <div class="hero-container">
+    <div class="hero-inner">
 
         <div class="eyebrow">
             FlyRank ML Internship · Capstone Research
@@ -787,26 +1194,27 @@
         </h1>
 
         <p class="hero-description">
-            A decision-support framework for identifying content observations
-            that should be prioritized for refresh, investigation, or human review.
+            A decision-support framework for identifying content
+            observations that should be prioritized for refresh,
+            investigation, or human review.
         </p>
 
         <p class="author">
-            <strong>Fatima Iqbal</strong>
-            · <span>AI Software Engineer</span>
-            · Data Science
-            · Machine Learning
+            Fatima Iqbal · AI Software Engineer ·
+            Data Science · Machine Learning
         </p>
 
-        <div class="hero-actions">
+        <div class="buttons">
 
-            <a href="#results" class="btn btn-primary">
+            <a class="button button-primary"
+               href="#results">
                 View Results →
             </a>
 
-            <a href="https://github.com/fatimaiqbal34/Task1-week1"
+            <a class="button button-secondary"
+               href="https://github.com/fatimaiqbal34/Task1-week1"
                target="_blank"
-               class="btn btn-secondary">
+               rel="noopener">
                 View GitHub Repository
             </a>
 
@@ -814,1391 +1222,2129 @@
 
     </div>
 
-</header>
+</section>
 
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
 
 <main>
 
 
-<!-- =====================================================
-     ABSTRACT
-===================================================== -->
+<!-- =========================================================
+     01 ABSTRACT
+========================================================= -->
 
 <section id="abstract">
 
-    <div class="container">
+    <div class="section-label">
+        01 · Abstract
+    </div>
 
-        <div class="section-number">01 · ABSTRACT</div>
+    <h2>
+        Research Summary
+    </h2>
 
-        <h2 class="section-title">
-            Research Summary
-        </h2>
+    <p class="lead">
+        This study asks which observable search-performance
+        signals can be combined into a repeatable approach
+        for prioritizing content pages for review or refresh.
+    </p>
 
-        <div class="abstract-box">
+    <p>
+        The analysis uses anonymized FlyRank search and analytics
+        data and evaluates search visibility, traffic, engagement,
+        demand, content age, and trend-related signals.
+    </p>
 
-            <p>
-                This study asks which observable search-performance signals
-                can be combined into a repeatable approach for prioritizing
-                content pages for review or refresh.
-            </p>
+    <p>
+        A Random Forest classifier was evaluated using both
+        a conventional random split and a more conservative
+        client-grouped validation design.
+    </p>
 
-            <p>
-                The analysis uses anonymized FlyRank search and analytics data
-                and evaluates search visibility, traffic, engagement, demand,
-                content age, and trend-related signals.
-            </p>
+    <div class="stats">
 
-            <p>
-                A Random Forest classifier was evaluated using both a
-                conventional random split and a more conservative client-grouped
-                validation design.
-            </p>
+        <div class="stat">
 
-            <p>
-                On the client-grouped test set, the model achieved
-                <strong>57.24% accuracy</strong>, compared with
-                <strong>54.21%</strong> for the majority-class baseline.
-            </p>
+            <div class="stat-value">
+                57.24%
+            </div>
 
-            <p>
-                The results suggest that measured signals can provide
-                directional decision support for content review, but they do
-                not establish causal refresh effects or predict Google's
-                ranking algorithm.
-            </p>
+            <div class="stat-label">
+                Random Forest · Client-grouped accuracy
+            </div>
 
-            <div class="research-framing">
+        </div>
 
-                <strong>Research framing:</strong>
+        <div class="stat">
 
-                This is a decision-support ranking system. It is not a causal
-                model, a guaranteed refresh-success predictor, or a model of
-                Google's ranking algorithm.
+            <div class="stat-value">
+                54.21%
+            </div>
 
+            <div class="stat-label">
+                Majority-class baseline
+            </div>
+
+        </div>
+
+        <div class="stat">
+
+            <div class="stat-value">
+                +3.03 pp
+            </div>
+
+            <div class="stat-label">
+                Improvement over baseline
+            </div>
+
+        </div>
+
+        <div class="stat">
+
+            <div class="stat-value">
+                70.13%
+            </div>
+
+            <div class="stat-label">
+                Original random-split accuracy
             </div>
 
         </div>
 
     </div>
 
+    <div class="info-box">
+
+        <strong>Research framing:</strong>
+
+        This is a decision-support ranking system.
+        It is not a causal model, a guaranteed refresh-success
+        predictor, or a model of Google's ranking algorithm.
+
+    </div>
+
 </section>
 
 
-<!-- =====================================================
-     PROBLEM
-===================================================== -->
+<!-- =========================================================
+     02 PROBLEM
+========================================================= -->
 
 <section id="problem">
 
-    <div class="container">
+    <div class="section-label">
+        02 · Problem Statement
+    </div>
 
-        <div class="section-number">02 · PROBLEM STATEMENT</div>
+    <h2>
+        What Decision Does This Work Support?
+    </h2>
 
-        <h2 class="section-title">
-            What Decision Does This Work Support?
-        </h2>
+    <p class="lead">
+        Content teams can manage thousands of pages while
+        search visibility, traffic, engagement, demand, and
+        content age change at different rates.
+    </p>
 
-        <p class="section-intro">
-            Content teams can manage thousands of pages while search visibility,
-            traffic, engagement, demand, and content age change at different rates.
-        </p>
+    <div class="card-grid">
 
-        <div class="card">
+        <article class="card">
+
+            <div class="card-number">
+                01
+            </div>
 
             <h3>
                 The Content Review Problem
             </h3>
 
             <p>
-                The central decision is not simply whether a page is performing
-                well or poorly, but which pages deserve attention first.
+                The central decision is not simply whether a
+                page is performing well or poorly, but which
+                pages deserve attention first.
             </p>
 
-            <p>
-                A repeatable scoring framework can reduce the search space for
-                human reviewers by combining multiple observable signals into
-                a practical review queue.
-            </p>
+        </article>
+
+        <article class="card">
+
+            <div class="card-number">
+                02
+            </div>
 
             <h3>
                 Research Question
             </h3>
 
             <p>
-                Which observable search-performance signals can be combined into
-                a repeatable score to identify content observations that should
-                be prioritized for refresh or human review?
+                Which observable search-performance signals
+                can be combined into a repeatable score to
+                identify content observations that should be
+                prioritized for refresh or human review?
             </p>
 
-            <div class="callout">
+        </article>
 
-                <strong>Decision supported:</strong>
+        <article class="card">
 
-                The framework ranks observations that may deserve earlier
-                investigation. It does not automatically determine which
-                content action should be taken.
-
+            <div class="card-number">
+                03
             </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     DATA
-===================================================== -->
-
-<section id="data">
-
-    <div class="container">
-
-        <div class="section-number">03 · DATA</div>
-
-        <h2 class="section-title">
-            Data & Public-Safe Analysis
-        </h2>
-
-        <p class="section-intro">
-            The analysis uses the FlyRank internship warehouse release and
-            focuses on observable content-performance measurements while
-            excluding sensitive and identifying information from the public
-            research artifact.
-        </p>
-
-        <div class="grid-2">
-
-            <div class="card">
-
-                <div class="card-icon">D</div>
-
-                <h3>Data Release</h3>
-
-                <p>
-                    FlyRank ML Internship warehouse release hosted on
-                    Hugging Face.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <div class="card-icon">T</div>
-
-                <h3>Primary Table</h3>
-
-                <p>
-                    <code>fact_content_daily_performance</code>
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <div class="card-icon">U</div>
-
-                <h3>Observational Unit</h3>
-
-                <p>
-                    Content-page observations recorded at reporting dates with
-                    search and analytics measurements.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <div class="card-icon">W</div>
-
-                <h3>Analysis Window</h3>
-
-                <p>
-                    The final analysis window follows the reporting dates
-                    available in the capstone dataset used for the model.
-                </p>
-
-                <p>
-                    Exact dates are documented in the capstone notebook.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <h3 style="margin-top:45px;">
-            Primary Signal Families
-        </h3>
-
-        <div class="grid">
-
-            <div class="card">
-
-                <h3>Search Visibility</h3>
-
-                <p>
-                    GSC impressions and average position were used as observable
-                    measures of search visibility.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>Search Engagement</h3>
-
-                <p>
-                    GSC clicks and CTR provide observed interaction with search
-                    results.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>Traffic</h3>
-
-                <p>
-                    GA4 pageviews and sessions provide observed traffic
-                    measurements where available.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>Content & Engagement</h3>
-
-                <p>
-                    Word count, content age, engagement rate and scroll activity
-                    provide additional context.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>Search Demand</h3>
-
-                <p>
-                    Search volume, competition and CPC provide context around
-                    observable search demand.
-                </p>
-
-            </div>
-
-            <div class="card">
-
-                <h3>Trend Context</h3>
-
-                <p>
-                    Trend information was used to define the observed
-                    declining/non-declining target.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <h3 style="margin-top:45px;">
-            Public-Safe Exclusions
-        </h3>
-
-        <div class="limitations">
-
-            <div class="limitation">
-                Client names and identifying information were excluded.
-            </div>
-
-            <div class="limitation">
-                Domains, URLs, private queries and credentials were not included.
-            </div>
-
-            <div class="limitation">
-                Sparse AI-referral fields were excluded from the primary
-                opportunity analysis where density was insufficient.
-            </div>
-
-            <div class="limitation">
-                Client and content identifiers were excluded from predictive features.
-            </div>
-
-            <div class="limitation">
-                Raw warehouse exports were not published.
-            </div>
-
-        </div>
-
-        <div class="callout">
-
-            <strong>Public-safety principle:</strong>
-
-            Results are framed as observed, measured, directional and
-            decision-support evidence.
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     METHODOLOGY
-===================================================== -->
-
-<section id="methodology">
-
-    <div class="container">
-
-        <div class="section-number">04 · METHODOLOGY</div>
-
-        <h2 class="section-title">
-            How the Analysis Was Built
-        </h2>
-
-        <p class="section-intro">
-            The project follows a repeatable workflow: define the decision,
-            inspect the data, construct features, establish a baseline,
-            train a model, validate it honestly, audit leakage, and translate
-            evidence into ranked recommendations.
-        </p>
-
-
-        <div class="steps">
-
-            <div class="step">
-
-                <div class="step-number">1</div>
-
-                <div>
-                    <h3>Define the Decision</h3>
-                    <p>
-                        Identify which observations should receive earlier
-                        human review.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">2</div>
-
-                <div>
-                    <h3>Build Features</h3>
-                    <p>
-                        Combine search, traffic, engagement, demand and
-                        content-age signals.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">3</div>
-
-                <div>
-                    <h3>Define the Label</h3>
-                    <p>
-                        Distinguish declining observations from
-                        non-declining observations.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">4</div>
-
-                <div>
-                    <h3>Establish Baseline</h3>
-                    <p>
-                        Use the majority-class prediction as a simple
-                        reference point.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">5</div>
-
-                <div>
-                    <h3>Train & Validate</h3>
-                    <p>
-                        Evaluate a Random Forest using client-grouped validation.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">6</div>
-
-                <div>
-                    <h3>Rank Actions</h3>
-                    <p>
-                        Translate model outputs and observed signals into a
-                        practical review queue.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <h3 style="margin-top:50px;">
-            Feature Set
-        </h3>
-
-        <div class="features">
-
-            <span class="feature">search_volume</span>
-            <span class="feature">competition</span>
-            <span class="feature">cpc</span>
-            <span class="feature">word_count</span>
-            <span class="feature">impressions_90d</span>
-            <span class="feature">clicks_90d</span>
-            <span class="feature">sessions_90d</span>
-            <span class="feature">content_age_days</span>
-            <span class="feature">ctr</span>
-            <span class="feature">avg_position</span>
-            <span class="feature">engagement_rate</span>
-            <span class="feature">scroll_rate</span>
-
-        </div>
-
-
-        <div class="grid-2">
-
-            <div class="card">
-
-                <h3>Target / Label Definition</h3>
-
-                <p>
-                    The predictive target is a binary distinction between
-                    <strong>declining</strong> and
-                    <strong>non-declining</strong> observations based on the
-                    available trend-direction field.
-                </p>
-
-                <p>
-                    The target is treated as an observed performance outcome
-                    for prioritization, not proof that a page needs a refresh.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>Opportunity Definition</h3>
-
-                <p>
-                    A content opportunity is an observation whose measured
-                    signals suggest that it may deserve earlier human
-                    investigation.
-                </p>
-
-                <p>
-                    Because there is no verified editorial ground-truth label,
-                    the score is a prioritization mechanism rather than a
-                    guaranteed prediction of refresh success.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <h3 style="margin-top:45px;">
-            Baseline & Dataset Summary
-        </h3>
-
-        <div class="stats">
-
-            <div class="stat">
-                <strong>30,000</strong>
-                <span>Total observations</span>
-            </div>
-
-            <div class="stat">
-                <strong>16,262</strong>
-                <span>Declining observations</span>
-            </div>
-
-            <div class="stat">
-                <strong>13,738</strong>
-                <span>Non-declining observations</span>
-            </div>
-
-            <div class="stat">
-                <strong>54.21%</strong>
-                <span>Majority baseline accuracy</span>
-            </div>
-
-        </div>
-
-
-        <h3>
-            Validation Design
-        </h3>
-
-        <div class="card">
-
-            <p>
-                An original random split produced
-                <strong>70.13% accuracy</strong>.
-            </p>
-
-            <p>
-                To test whether this estimate could be optimistic because
-                related observations from the same client appeared across
-                both training and testing data, a client-grouped split using
-                <code>GroupShuffleSplit</code> was performed.
-            </p>
-
-            <p>
-                Records from the same client were kept together rather than
-                appearing in both training and testing groups.
-            </p>
-
-        </div>
-
-
-        <h3 style="margin-top:35px;">
-            Leakage Checks
-        </h3>
-
-        <p>
-            Target-derived and closely related outcome fields were excluded
-            from predictive features.
-        </p>
-
-        <div class="code-list">
-
-trend_direction<br>
-trend_pct<br>
-impressions_last_30d<br>
-clicks_last_30d<br>
-sessions_last_30d<br>
-impressions_prev_30d<br>
-clicks_prev_30d<br>
-sessions_prev_30d<br>
-client_id<br>
-content_id
-
-        </div>
-
-        <div class="callout">
-
-            <strong>Leakage principle:</strong>
-
-            Variables that directly encode the target or its underlying
-            outcome window were not used as predictive inputs.
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     RESULTS
-===================================================== -->
-
-<section id="results">
-
-    <div class="container">
-
-        <div class="section-number">05 · RESULTS</div>
-
-        <h2 class="section-title">
-            Model vs Baseline
-        </h2>
-
-        <p class="section-intro">
-            The final evaluation compares the Random Forest against a
-            simple majority-class baseline using the same client-grouped
-            validation framework.
-        </p>
-
-
-        <div class="stats">
-
-            <div class="stat">
-                <strong>54.21%</strong>
-                <span>Majority Baseline</span>
-            </div>
-
-            <div class="stat">
-                <strong>57.24%</strong>
-                <span>Random Forest</span>
-            </div>
-
-            <div class="stat">
-                <strong>+3.03</strong>
-                <span>Percentage Points</span>
-            </div>
-
-            <div class="stat">
-                <strong>70.13%</strong>
-                <span>Original Random Split</span>
-            </div>
-
-        </div>
-
-
-        <div class="result-highlight">
 
             <h3>
-                Main Result
+                Decision Supported
             </h3>
 
             <p>
-                Under client-grouped validation, the Random Forest achieved
-                <strong>57.24%</strong> accuracy versus
-                <strong>54.21%</strong> for the majority-class baseline.
+                The framework ranks observations that may
+                deserve earlier investigation. It does not
+                automatically determine which content action
+                should be taken.
             </p>
 
-            <p>
-                This is a modest improvement of
-                <strong>3.03 percentage points</strong>.
-            </p>
-
-        </div>
-
-
-        <h3>
-            Accuracy Comparison
-        </h3>
-
-        <div class="comparison">
-
-            <div class="bar-row">
-
-                <div class="bar-label">
-                    <span>Majority Baseline</span>
-                    <span>54.21%</span>
-                </div>
-
-                <div class="bar">
-                    <div class="bar-fill baseline"></div>
-                </div>
-
-            </div>
-
-
-            <div class="bar-row">
-
-                <div class="bar-label">
-                    <span>Random Forest · Client Grouped</span>
-                    <span>57.24%</span>
-                </div>
-
-                <div class="bar">
-                    <div class="bar-fill model"></div>
-                </div>
-
-            </div>
-
-
-            <div class="bar-row">
-
-                <div class="bar-label">
-                    <span>Random Forest · Original Random Split</span>
-                    <span>70.13%</span>
-                </div>
-
-                <div class="bar">
-                    <div class="bar-fill random"></div>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="table-wrapper">
-
-            <table>
-
-                <thead>
-
-                    <tr>
-                        <th>Approach</th>
-                        <th>Validation Design</th>
-                        <th>Accuracy</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>Majority-class baseline</td>
-                        <td>Client-grouped</td>
-                        <td><strong>54.21%</strong></td>
-                    </tr>
-
-                    <tr>
-                        <td>Random Forest</td>
-                        <td>Client-grouped</td>
-                        <td><strong>57.24%</strong></td>
-                    </tr>
-
-                    <tr>
-                        <td>Random Forest</td>
-                        <td>Original random split</td>
-                        <td><strong>70.13%</strong></td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-
-        <h3>
-            What the Validation Result Tells Us
-        </h3>
-
-        <div class="card">
-
-            <p>
-                The Random Forest measured
-                <strong>57.24%</strong> accuracy under client-grouped
-                validation, compared with
-                <strong>54.21%</strong> for the majority-class baseline.
-            </p>
-
-            <p>
-                This represents an improvement of approximately
-                <strong>3.03 percentage points</strong>.
-            </p>
-
-            <p>
-                The much higher <strong>70.13%</strong> random-split result
-                demonstrates why validation design matters when observations
-                from the same client may be related.
-            </p>
-
-            <div class="callout">
-
-                <strong>Honest interpretation:</strong>
-
-                The grouped result is the more conservative estimate of
-                performance on unseen clients. The evidence supports
-                directional prioritization, not a claim of universal
-                generalization.
-
-            </div>
-
-        </div>
-
-
-        <h3 style="margin-top:50px;">
-            Key Findings
-        </h3>
-
-        <div class="grid">
-
-            <div class="card">
-
-                <div class="card-icon">01</div>
-
-                <h3>Modest Model Improvement</h3>
-
-                <p>
-                    The model performed above the majority baseline under
-                    client-grouped validation.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-icon">02</div>
-
-                <h3>Validation Matters</h3>
-
-                <p>
-                    Accuracy fell from 70.13% under a random split to 57.24%
-                    when clients were kept separate.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-icon">03</div>
-
-                <h3>Signals Are Directional</h3>
-
-                <p>
-                    Trend, engagement and search-demand signals provide useful
-                    context but are not universal rules.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-icon">04</div>
-
-                <h3>Human Review Remains Important</h3>
-
-                <p>
-                    Conflicting signals should lead to investigation rather
-                    than automatic content changes.
-                </p>
-
-            </div>
-
-        </div>
+        </article>
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     RECOMMENDATIONS
-===================================================== -->
+<!-- =========================================================
+     03 DATA
+========================================================= -->
+
+<section id="data">
+
+    <div class="section-label">
+        03 · Data
+    </div>
+
+    <h2>
+        Data & Public-Safe Analysis
+    </h2>
+
+    <p class="lead">
+        The analysis uses the FlyRank internship warehouse
+        release and focuses on observable content-performance
+        measurements while excluding sensitive and identifying
+        information from the public research artifact.
+    </p>
+
+    <div class="data-grid">
+
+        <article class="data-card">
+
+            <div class="letter">
+                D
+            </div>
+
+            <strong>
+                Data Release
+            </strong>
+
+            <p class="muted">
+                FlyRank ML Internship warehouse release
+                hosted on Hugging Face.
+            </p>
+
+        </article>
+
+        <article class="data-card">
+
+            <div class="letter">
+                T
+            </div>
+
+            <strong>
+                Primary Table
+            </strong>
+
+            <p class="muted">
+                <code>fact_content_daily_performance</code>
+            </p>
+
+        </article>
+
+        <article class="data-card">
+
+            <div class="letter">
+                U
+            </div>
+
+            <strong>
+                Observational Unit
+            </strong>
+
+            <p class="muted">
+                Content-page observations recorded at
+                reporting dates.
+            </p>
+
+        </article>
+
+        <article class="data-card">
+
+            <div class="letter">
+                W
+            </div>
+
+            <strong>
+                Analysis Window
+            </strong>
+
+            <p class="muted">
+                Follows reporting dates available in
+                the capstone dataset.
+            </p>
+
+        </article>
+
+    </div>
+
+    <div class="info-box">
+
+        <strong>Analysis window:</strong>
+
+        The final analysis window follows the reporting dates
+        available in the capstone dataset used for the model.
+        Exact dates are documented in the capstone notebook.
+
+    </div>
+
+
+    <h3>
+        Primary Signal Families
+    </h3>
+
+    <div class="card-grid">
+
+        <article class="card">
+
+            <h3>
+                Search Visibility
+            </h3>
+
+            <p>
+                GSC impressions and average position were used
+                as observable measures of search visibility.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <h3>
+                Search Engagement
+            </h3>
+
+            <p>
+                GSC clicks and CTR provide observed interaction
+                with search results.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <h3>
+                Traffic
+            </h3>
+
+            <p>
+                GA4 pageviews and sessions provide observed
+                traffic measurements where available.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <h3>
+                Content & Engagement
+            </h3>
+
+            <p>
+                Word count, content age, engagement rate and
+                scroll activity provide additional context.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <h3>
+                Search Demand
+            </h3>
+
+            <p>
+                Search volume, competition and CPC provide
+                context around observable search demand.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <h3>
+                Trend Context
+            </h3>
+
+            <p>
+                Trend information was used to define the
+                observed declining/non-declining target.
+            </p>
+
+        </article>
+
+    </div>
+
+
+    <h3 style="margin-top: 35px;">
+        Data Availability
+    </h3>
+
+    <p>
+        Data availability flags are used to distinguish
+        observations where GSC or GA4 measurements are present.
+        Missing or unavailable measurements are not treated
+        as evidence of poor content performance.
+    </p>
+
+
+    <h3 style="margin-top: 35px;">
+        Public-Safe Exclusions
+    </h3>
+
+    <ul class="limitations">
+
+        <li>
+            Client names and identifying information were excluded.
+        </li>
+
+        <li>
+            Domains, URLs, private queries and credentials
+            were not included.
+        </li>
+
+        <li>
+            Sparse AI-referral fields were excluded from the
+            primary opportunity analysis where density was
+            insufficient.
+        </li>
+
+        <li>
+            Client and content identifiers were excluded from
+            predictive features.
+        </li>
+
+        <li>
+            Raw warehouse exports were not published.
+        </li>
+
+    </ul>
+
+    <div class="warning-box">
+
+        <strong>Data limitation:</strong>
+
+        The warehouse contains observed search and analytics
+        measurements but does not establish why performance
+        changed. The resulting opportunity score is therefore
+        directional decision support rather than a causal
+        or algorithmic claim.
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     04 METHODOLOGY
+========================================================= -->
+
+<section id="methodology">
+
+    <div class="section-label">
+        04 · Methodology
+    </div>
+
+    <h2>
+        How the Analysis Was Built
+    </h2>
+
+    <p class="lead">
+        The project follows a repeatable content-opportunity
+        scoring workflow: define the decision, inspect the data,
+        construct features, establish a baseline, train a model,
+        validate it honestly, audit leakage, and translate
+        evidence into ranked recommendations.
+    </p>
+
+
+    <div class="workflow">
+
+        <article class="workflow-item">
+
+            <div class="workflow-number">
+                01
+            </div>
+
+            <h3>
+                Define the Decision
+            </h3>
+
+            <p>
+                Identify which observations should receive
+                earlier human review.
+            </p>
+
+        </article>
+
+        <article class="workflow-item">
+
+            <div class="workflow-number">
+                02
+            </div>
+
+            <h3>
+                Build Features
+            </h3>
+
+            <p>
+                Combine search, traffic, engagement,
+                demand and content-age signals.
+            </p>
+
+        </article>
+
+        <article class="workflow-item">
+
+            <div class="workflow-number">
+                03
+            </div>
+
+            <h3>
+                Define the Label
+            </h3>
+
+            <p>
+                Distinguish declining observations from
+                non-declining observations.
+            </p>
+
+        </article>
+
+        <article class="workflow-item">
+
+            <div class="workflow-number">
+                04
+            </div>
+
+            <h3>
+                Establish Baseline
+            </h3>
+
+            <p>
+                Use the majority-class prediction as a
+                simple reference point.
+            </p>
+
+        </article>
+
+        <article class="workflow-item">
+
+            <div class="workflow-number">
+                05
+            </div>
+
+            <h3>
+                Train & Validate
+            </h3>
+
+            <p>
+                Evaluate a Random Forest using client-grouped
+                validation.
+            </p>
+
+        </article>
+
+        <article class="workflow-item">
+
+            <div class="workflow-number">
+                06
+            </div>
+
+            <h3>
+                Rank Actions
+            </h3>
+
+            <p>
+                Translate model outputs and observed signals
+                into a practical review queue.
+            </p>
+
+        </article>
+
+    </div>
+
+
+    <h3 style="margin-top: 40px;">
+        Feature Set
+    </h3>
+
+    <ul class="feature-list">
+
+        <li>search_volume</li>
+        <li>competition</li>
+        <li>cpc</li>
+        <li>word_count</li>
+        <li>impressions_90d</li>
+        <li>clicks_90d</li>
+        <li>sessions_90d</li>
+        <li>content_age_days</li>
+        <li>ctr</li>
+        <li>avg_position</li>
+        <li>engagement_rate</li>
+        <li>scroll_rate</li>
+        <li>ai_traffic_pct</li>
+        <li>trend_pct</li>
+
+    </ul>
+
+
+    <h3 style="margin-top: 35px;">
+        Opportunity Definition
+    </h3>
+
+    <p>
+        A content opportunity is an observation whose measured
+        signals suggest that it may deserve earlier human
+        investigation.
+    </p>
+
+    <p>
+        Because there is no verified editorial ground-truth
+        label, the score is a prioritization mechanism rather
+        than a guaranteed prediction of refresh success.
+    </p>
+
+
+    <h3 style="margin-top: 35px;">
+        Signal Audit
+    </h3>
+
+    <p>
+        Before building recommendations, the distributions
+        of the main numeric fields were inspected.
+    </p>
+
+    <p>
+        Several features showed strong right-skew and heavy
+        tails. Because extreme observations can strongly
+        affect averages, the analysis uses medians, grouped
+        comparisons, and directional interpretation where
+        appropriate.
+    </p>
+
+    <div class="card-grid">
+
+        <article class="card">
+
+            <div class="card-number">
+                01
+            </div>
+
+            <h3>
+                Trend Direction
+            </h3>
+
+            <p>
+                Trend direction was compared against
+                recent sessions.
+            </p>
+
+            <strong>
+                Result: MIXED
+            </strong>
+
+        </article>
+
+        <article class="card">
+
+            <div class="card-number">
+                02
+            </div>
+
+            <h3>
+                Engagement Rate
+            </h3>
+
+            <p>
+                Engagement-rate groups were compared
+                against recent sessions.
+            </p>
+
+            <strong>
+                Result: MIXED
+            </strong>
+
+        </article>
+
+        <article class="card">
+
+            <div class="card-number">
+                03
+            </div>
+
+            <h3>
+                Search Volume
+            </h3>
+
+            <p>
+                Search-volume groups were compared
+                against impressions.
+            </p>
+
+            <strong>
+                Result: MIXED
+            </strong>
+
+        </article>
+
+    </div>
+
+
+    <h3 style="margin-top: 40px;">
+        Baseline & Dataset Summary
+    </h3>
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <div class="stat-value">
+                30,000
+            </div>
+
+            <div class="stat-label">
+                Total observations
+            </div>
+
+        </div>
+
+        <div class="stat">
+
+            <div class="stat-value">
+                16,262
+            </div>
+
+            <div class="stat-label">
+                Declining observations
+            </div>
+
+        </div>
+
+        <div class="stat">
+
+            <div class="stat-value">
+                13,738
+            </div>
+
+            <div class="stat-label">
+                Non-declining observations
+            </div>
+
+        </div>
+
+        <div class="stat">
+
+            <div class="stat-value">
+                54.21%
+            </div>
+
+            <div class="stat-label">
+                Majority baseline accuracy
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <h3 style="margin-top: 40px;">
+        Proposed Model
+    </h3>
+
+    <p>
+        A Random Forest classifier was evaluated as a stronger
+        modelling approach for identifying declining content.
+    </p>
+
+    <p>
+        The model used content, search, traffic, engagement,
+        age and categorical features while excluding identifiers
+        and target-derived trend fields.
+    </p>
+
+
+    <h3 style="margin-top: 35px;">
+        Validation Design
+    </h3>
+
+    <p>
+        The original Week-5 random split produced an accuracy
+        of <strong>70.13%</strong>.
+    </p>
+
+    <p>
+        To test whether that result was optimistic because
+        related observations from the same client appeared
+        across both training and testing data, a client-grouped
+        split was performed using <code>GroupShuffleSplit</code>.
+    </p>
+
+    <p>
+        Records belonging to the same client were kept together
+        rather than allowing the same client to appear in both
+        training and testing groups.
+    </p>
+
+    <div class="success-box">
+
+        <strong>
+            Client-grouped evaluation:
+        </strong>
+
+        The Random Forest produced
+        <strong>57.24% accuracy</strong>.
+
+    </div>
+
+
+    <h3 style="margin-top: 35px;">
+        Leakage Checks
+    </h3>
+
+    <p>
+        The target label was created from
+        <code>trend_direction</code>.
+        Therefore, target-derived or closely related fields
+        were excluded from predictive features.
+    </p>
+
+    <ul class="feature-list">
+
+        <li>trend_direction</li>
+        <li>trend_pct</li>
+        <li>impressions_last_30d</li>
+        <li>clicks_last_30d</li>
+        <li>sessions_last_30d</li>
+        <li>impressions_prev_30d</li>
+        <li>clicks_prev_30d</li>
+        <li>sessions_prev_30d</li>
+        <li>client_id</li>
+        <li>content_id</li>
+
+    </ul>
+
+    <div class="info-box">
+
+        <strong>Leakage principle:</strong>
+
+        Variables that directly encode the target or its
+        underlying outcome window were not used as predictive
+        inputs. Client and content identifiers were also
+        excluded because they are identifiers rather than
+        useful predictive signals.
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     05 RESULTS
+========================================================= -->
+
+<section id="results">
+
+    <div class="section-label">
+        05 · Results
+    </div>
+
+    <h2>
+        Model vs Baseline
+    </h2>
+
+    <p class="lead">
+        The final evaluation compares the Random Forest against
+        a simple majority-class baseline using the same
+        client-grouped validation framework.
+    </p>
+
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <div class="stat-value">
+                54.21%
+            </div>
+
+            <div class="stat-label">
+                Majority Baseline
+            </div>
+
+        </div>
+
+        <div class="stat">
+
+            <div class="stat-value">
+                57.24%
+            </div>
+
+            <div class="stat-label">
+                Random Forest · Client Grouped
+            </div>
+
+        </div>
+
+        <div class="stat">
+
+            <div class="stat-value">
+                +3.03
+            </div>
+
+            <div class="stat-label">
+                Percentage-point improvement
+            </div>
+
+        </div>
+
+        <div class="stat">
+
+            <div class="stat-value">
+                70.13%
+            </div>
+
+            <div class="stat-label">
+                Original Random Split
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <h3>
+        Model vs Baseline
+    </h3>
+
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>
+                        Approach
+                    </th>
+
+                    <th>
+                        Evaluation
+                    </th>
+
+                    <th>
+                        Metric
+                    </th>
+
+                    <th>
+                        Result
+                    </th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        Majority-class baseline
+                    </td>
+
+                    <td>
+                        Client-grouped split
+                    </td>
+
+                    <td>
+                        Accuracy
+                    </td>
+
+                    <td class="highlight">
+                        54.21%
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        Random Forest
+                    </td>
+
+                    <td>
+                        Client-grouped split
+                    </td>
+
+                    <td>
+                        Accuracy
+                    </td>
+
+                    <td class="highlight">
+                        57.24%
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <p>
+        The Random Forest measured <strong>57.24%</strong>
+        accuracy on the client-grouped test set, compared
+        with <strong>54.21%</strong> for the majority-class
+        baseline.
+    </p>
+
+    <p>
+        This is a modest improvement of approximately
+        <strong>3.03 percentage points</strong> over the
+        majority baseline.
+    </p>
+
+
+    <h3 style="margin-top: 35px;">
+        Random Split vs Grouped Split
+    </h3>
+
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>
+                        Validation Design
+                    </th>
+
+                    <th>
+                        Accuracy
+                    </th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        Original random split
+                    </td>
+
+                    <td class="highlight">
+                        70.13%
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        Client-grouped split
+                    </td>
+
+                    <td class="highlight">
+                        57.24%
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        Majority baseline
+                    </td>
+
+                    <td class="highlight">
+                        54.21%
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <div class="warning-box">
+
+        <strong>
+            Honest interpretation:
+        </strong>
+
+        The grouped result is the more conservative estimate
+        of performance on unseen clients. The much higher
+        random-split result demonstrates why validation design
+        matters when observations from the same client may be
+        related.
+
+    </div>
+
+
+    <h3 style="margin-top: 35px;">
+        Key Findings
+    </h3>
+
+    <div class="card-grid">
+
+        <article class="card">
+
+            <div class="card-number">
+                01
+            </div>
+
+            <h3>
+                Modest Model Improvement
+            </h3>
+
+            <p>
+                The model performed above the majority baseline
+                under client-grouped validation.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <div class="card-number">
+                02
+            </div>
+
+            <h3>
+                Validation Matters
+            </h3>
+
+            <p>
+                Accuracy fell from 70.13% under a random split
+                to 57.24% when clients were kept separate.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <div class="card-number">
+                03
+            </div>
+
+            <h3>
+                Signals Are Directional
+            </h3>
+
+            <p>
+                Trend, engagement and search-demand signals
+                provide useful context but are not universal
+                rules.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <div class="card-number">
+                04
+            </div>
+
+            <h3>
+                Human Review Remains Important
+            </h3>
+
+            <p>
+                Conflicting signals should lead to investigation
+                rather than automatic content changes.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     06 RECOMMENDATIONS
+========================================================= -->
 
 <section id="recommendations">
 
-    <div class="container">
+    <div class="section-label">
+        06 · Ranked Recommendations
+    </div>
 
-        <div class="section-number">06 · RANKED RECOMMENDATIONS</div>
+    <h2>
+        Content Action Playbook
+    </h2>
 
-        <h2 class="section-title">
-            Content Action Playbook
-        </h2>
-
-        <p class="section-intro">
-            The analysis supports a review-prioritization workflow rather than
-            an automatic content decision system.
-        </p>
-
-
-        <div class="recommendations">
+    <p class="lead">
+        The analysis supports a review-prioritization workflow
+        rather than an automatic content decision system.
+    </p>
 
 
-            <div class="recommendation">
+    <article class="recommendation">
 
-                <div class="rank">01</div>
+        <div class="recommendation-number">
+            01
+        </div>
 
-                <div>
+        <div>
 
-                    <h3>Review Declining Pages</h3>
+            <h3>
+                Review Declining Pages
+            </h3>
 
-                    <p>
-                        Pages showing declining trend signals should receive
-                        early review, particularly when other performance
-                        indicators also appear weak.
-                    </p>
+            <p>
+                Pages showing declining trend signals should
+                receive early review, especially when recent
+                sessions or other performance indicators also
+                appear weak.
+            </p>
 
-                    <span class="action">
-                        Action: Inspect before deciding whether to refresh,
-                        improve, merge or monitor.
-                    </span>
+            <p>
+                <strong>Reason:</strong>
+                The trend signal showed directional evidence of
+                changing recent performance, but the signal was
+                classified as MIXED.
+            </p>
 
-                </div>
-
-            </div>
-
-
-            <div class="recommendation">
-
-                <div class="rank">02</div>
-
-                <div>
-
-                    <h3>Review Weak-Engagement Pages</h3>
-
-                    <p>
-                        Pages with weaker engagement signals can be reviewed
-                        for relevance, structure, readability and alignment
-                        with user intent.
-                    </p>
-
-                    <span class="action">
-                        Action: Review content quality and user experience.
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="recommendation">
-
-                <div class="rank">03</div>
-
-                <div>
-
-                    <h3>Review High-Demand / Weak-Visibility Pages</h3>
-
-                    <p>
-                        Pages associated with stronger search demand but weaker
-                        observed visibility may represent opportunities for
-                        further investigation.
-                    </p>
-
-                    <span class="action">
-                        Action: Review search intent, content coverage,
-                        internal linking and metadata.
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="recommendation">
-
-                <div class="rank">04</div>
-
-                <div>
-
-                    <h3>Review Aging Content</h3>
-
-                    <p>
-                        Older content can be monitored for potential refresh
-                        opportunities when combined with declining or weak
-                        performance signals.
-                    </p>
-
-                    <span class="action">
-                        Action: Compare historical and recent performance.
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="recommendation">
-
-                <div class="rank">05</div>
-
-                <div>
-
-                    <h3>Monitor Mixed-Signal Pages</h3>
-
-                    <p>
-                        Pages with conflicting signals should remain in a
-                        monitoring queue instead of receiving an automatic
-                        action.
-                    </p>
-
-                    <span class="action">
-                        Action: Gather additional evidence and use human judgment.
-                    </span>
-
-                </div>
-
+            <div class="action">
+                <strong>Recommended action:</strong>
+                Inspect the page before deciding whether to
+                refresh, improve, merge or monitor it.
             </div>
 
         </div>
 
+    </article>
 
-        <div class="callout">
 
-            <strong>Recommended operating principle:</strong>
+    <article class="recommendation">
 
-            Use the ranking to decide where to look first, not what action
-            must be taken. The final refresh, rewrite, merge, prune or
-            monitoring decision remains with a human reviewer.
+        <div class="recommendation-number">
+            02
+        </div>
+
+        <div>
+
+            <h3>
+                Review Pages With Weak Engagement
+            </h3>
+
+            <p>
+                Pages with weaker engagement signals can be
+                reviewed for content relevance, structure,
+                readability and alignment with user intent.
+            </p>
+
+            <p>
+                <strong>Reason:</strong>
+                Engagement-rate groups showed directional
+                differences in recent sessions, but the
+                relationship was not strong enough to classify
+                as CONFIRMED.
+            </p>
+
+            <div class="action">
+                <strong>Recommended action:</strong>
+                Review content quality and user experience
+                before making changes.
+            </div>
 
         </div>
+
+    </article>
+
+
+    <article class="recommendation">
+
+        <div class="recommendation-number">
+            03
+        </div>
+
+        <div>
+
+            <h3>
+                Review High-Demand Pages With Weak Visibility
+            </h3>
+
+            <p>
+                Pages associated with stronger search demand
+                but weaker observed visibility may represent
+                opportunities for further investigation.
+            </p>
+
+            <p>
+                <strong>Reason:</strong>
+                Search-volume groups showed directional
+                differences in impressions, although the
+                heavy skew in search volume makes the
+                relationship uncertain.
+            </p>
+
+            <div class="action">
+                <strong>Recommended action:</strong>
+                Review search intent, content coverage,
+                internal linking, metadata and current
+                positioning.
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <article class="recommendation">
+
+        <div class="recommendation-number">
+            04
+        </div>
+
+        <div>
+
+            <h3>
+                Review Aging Content
+            </h3>
+
+            <p>
+                Older content can be monitored for potential
+                refresh opportunities, especially when age is
+                combined with declining or weak performance
+                signals.
+            </p>
+
+            <p>
+                <strong>Reason:</strong>
+                Content age is an observable signal, but the
+                analysis cannot establish that age itself
+                causes decline.
+            </p>
+
+            <div class="action">
+                <strong>Recommended action:</strong>
+                Compare older pages against recent performance
+                before selecting a refresh action.
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <article class="recommendation">
+
+        <div class="recommendation-number">
+            05
+        </div>
+
+        <div>
+
+            <h3>
+                Monitor Instead of Automatically Changing
+            </h3>
+
+            <p>
+                Pages with mixed or conflicting signals should
+                remain in a monitoring queue rather than
+                receiving an automatic action.
+            </p>
+
+            <p>
+                <strong>Reason:</strong>
+                The signal audit found that the tested
+                relationships were directional rather than
+                universally reliable.
+            </p>
+
+            <div class="action">
+                <strong>Recommended action:</strong>
+                Collect additional observations and use human
+                judgment before making a major content change.
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <div class="success-box">
+
+        <strong>Recommended operating principle:</strong>
+
+        Use the ranking to decide where to look first,
+        not what action must be taken.
+
+        The final refresh, rewrite, merge, prune or monitoring
+        decision remains with a human reviewer.
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     LIMITATIONS
-===================================================== -->
+<!-- =========================================================
+     07 LIMITATIONS
+========================================================= -->
 
 <section id="limitations">
 
-    <div class="container">
+    <div class="section-label">
+        07 · Limitations
+    </div>
 
-        <div class="section-number">07 · LIMITATIONS</div>
+    <h2>
+        What This Study Cannot Claim
+    </h2>
 
-        <h2 class="section-title">
-            What This Study Cannot Claim
-        </h2>
+    <p class="lead">
+        The findings should be interpreted as observed,
+        measured and directional evidence rather than
+        causal conclusions.
+    </p>
 
-        <div class="limitations">
+    <ul class="limitations">
 
-            <div class="limitation">
-                The dataset does not contain a verified ground-truth label
-                showing whether a page actually required a refresh.
-            </div>
+        <li>
+            The dataset does not contain a verified
+            ground-truth label showing whether a content
+            page actually required a refresh.
+        </li>
 
-            <div class="limitation">
-                The analysis cannot prove that refreshing content causes
-                search-performance improvement.
-            </div>
+        <li>
+            The analysis cannot prove that refreshing content
+            causes search-performance improvement.
+        </li>
 
-            <div class="limitation">
-                Search and traffic features can contain strong skew and
-                extreme observations.
-            </div>
+        <li>
+            Search and traffic features can contain strong
+            skew and extreme observations.
+        </li>
 
-            <div class="limitation">
-                Model performance decreased from 70.13% on the random split
-                to 57.24% under client-grouped validation.
-            </div>
+        <li>
+            Model performance decreased from 70.13% on the
+            random split to 57.24% under client-grouped
+            validation.
+        </li>
 
-            <div class="limitation">
-                The analysis measures associations in observed data rather
-                than causal relationships.
-            </div>
+        <li>
+            The analysis measures associations in observed
+            data rather than causal relationships.
+        </li>
 
-            <div class="limitation">
-                The results should not be interpreted as a prediction of
-                Google's ranking algorithm.
-            </div>
+        <li>
+            The results should not be interpreted as a
+            prediction of Google's ranking algorithm.
+        </li>
 
-            <div class="limitation">
-                Human review remains necessary before refresh, rewrite,
-                merge, prune or removal decisions.
-            </div>
+        <li>
+            Human review remains necessary before refresh,
+            rewrite, merge, prune or removal decisions.
+        </li>
 
-        </div>
+    </ul>
 
 
-        <div class="callout">
+    <div class="warning-box">
 
-            <strong>Honest framing:</strong>
+        <strong>Honest framing:</strong>
 
-            The findings are best understood as observed and directional
-            evidence that can support content-review prioritization.
-
-        </div>
+        The findings are best understood as observed and
+        directional evidence that can support
+        content-review prioritization.
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     REPRODUCIBILITY
-===================================================== -->
+<!-- =========================================================
+     08 REPRODUCIBILITY
+========================================================= -->
 
 <section id="reproducibility">
 
-    <div class="container">
+    <div class="section-label">
+        08 · Reproducibility
+    </div>
 
-        <div class="section-number">08 · REPRODUCIBILITY</div>
+    <h2>
+        Research Artifacts
+    </h2>
 
-        <h2 class="section-title">
-            Research Artifacts
-        </h2>
+    <p class="lead">
+        The analysis is maintained in the public project
+        repository. The capstone notebook documents the
+        research workflow, validation, leakage checks and
+        evidence used in this paper.
+    </p>
 
-        <p class="section-intro">
-            The analysis is maintained in the public project repository.
-            The capstone notebook documents the research workflow,
-            validation, leakage checks and evidence used in this paper.
+
+    <div class="repo-box">
+
+        <h3>
+            GitHub Repository
+        </h3>
+
+        <p>
+            Source code, documentation, assignment notebooks
+            and capstone research artifacts.
         </p>
 
+        <div class="buttons">
 
-        <div class="repo-card">
+            <a class="button button-primary"
+               href="https://github.com/fatimaiqbal34/Task1-week1"
+               target="_blank"
+               rel="noopener">
+                Open Repository →
+            </a>
 
-            <h2>
-                GitHub Repository
-            </h2>
-
-            <p>
-                Source code, documentation, assignment notebooks and
-                capstone research artifacts.
-            </p>
-
-            <div class="repo-links">
-
-                <a class="repo-link"
-                   href="https://github.com/fatimaiqbal34/Task1-week1"
-                   target="_blank">
-                    Open Repository →
-                </a>
-
-                <a class="repo-link"
-                   href="https://github.com/fatimaiqbal34/Task1-week1/blob/main/work/notebooks/capstone.ipynb"
-                   target="_blank">
-                    Open Capstone Notebook →
-                </a>
-
-            </div>
+            <a class="button button-secondary"
+               href="https://github.com/fatimaiqbal34/Task1-week1/blob/main/work/notebooks/capstone.ipynb"
+               target="_blank"
+               rel="noopener">
+                Open Capstone Notebook →
+            </a>
 
         </div>
 
 
-        <h3 style="margin-top:45px;">
-            Expected Repository Structure
-        </h3>
+        <div class="repo-structure">
 
-        <div class="code-list">
-
-Task1-Week1/<br>
-│<br>
-├── work/<br>
-│   └── notebooks/<br>
-│       ├── assignment notebooks<br>
-│       └── capstone.ipynb<br>
-│<br>
-├── submission/<br>
-│   └── paper_url.txt<br>
-│<br>
+Task1-Week1/
+│
+├── work/
+│   └── notebooks/
+│       ├── assignment notebooks
+│       └── capstone.ipynb
+│
+├── submission/
+│   └── paper_url.txt
+│
 └── index.html
 
         </div>
 
-
-        <div class="callout">
-
-            <strong>Mandatory submission file:</strong>
-
-            <code>submission/paper_url.txt</code> must contain exactly one
-            line: the direct URL of this deployed research paper.
-
-        </div>
+    </div>
 
 
-        <h3 style="margin-top:45px;">
-            Evidence Artifacts
-        </h3>
+    <div class="info-box">
 
-        <div class="table-wrapper">
+        <strong>Mandatory submission file:</strong>
 
-            <table>
+        <code>submission/paper_url.txt</code>
 
-                <thead>
+        must contain exactly one line: the direct URL of
+        this deployed research paper.
 
-                    <tr>
-                        <th>Artifact</th>
-                        <th>Purpose</th>
-                    </tr>
+    </div>
 
-                </thead>
 
-                <tbody>
+    <h3 style="margin-top: 35px;">
+        Evidence Artifacts
+    </h3>
 
-                    <tr>
-                        <td>Signal distribution analysis</td>
-                        <td>
-                            Identify skew and heavy-tailed features.
-                        </td>
-                    </tr>
+    <div class="artifact-grid">
 
-                    <tr>
-                        <td>Signal tests</td>
-                        <td>
-                            Compare trend, engagement and search-demand groups
-                            against observed performance.
-                        </td>
-                    </tr>
+        <article class="artifact">
 
-                    <tr>
-                        <td>Validation comparison</td>
-                        <td>
-                            Compare random and client-grouped evaluation.
-                        </td>
-                    </tr>
+            <div class="artifact-title">
 
-                    <tr>
-                        <td>Leakage audit</td>
-                        <td>
-                            Remove target-derived fields and identifiers.
-                        </td>
-                    </tr>
+                <div class="artifact-icon">
+                    01
+                </div>
 
-                    <tr>
-                        <td>Ranked action playbook</td>
-                        <td>
-                            Translate measured evidence into review priorities.
-                        </td>
-                    </tr>
+                <h3>
+                    Signal Distribution / Skewness
+                </h3>
 
-                </tbody>
+            </div>
 
-            </table>
+            <p>
+                A table showing the main numeric features
+                and their observed skewness.
+            </p>
 
-        </div>
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>
+                                Feature
+                            </th>
+
+                            <th>
+                                Observed Skew
+                            </th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>trend_pct</td>
+                            <td class="highlight">56.76</td>
+                        </tr>
+
+                        <tr>
+                            <td>search_volume</td>
+                            <td class="highlight">26.02</td>
+                        </tr>
+
+                        <tr>
+                            <td>ai_traffic_pct</td>
+                            <td class="highlight">18.43</td>
+                        </tr>
+
+                        <tr>
+                            <td>clicks_90d</td>
+                            <td class="highlight">18.35</td>
+                        </tr>
+
+                        <tr>
+                            <td>ctr</td>
+                            <td class="highlight">17.44</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p class="muted">
+                These values show that several features
+                have heavy right tails.
+            </p>
+
+        </article>
+
+
+        <article class="artifact">
+
+            <div class="artifact-title">
+
+                <div class="artifact-icon">
+                    02
+                </div>
+
+                <h3>
+                    Signal Test Results
+                </h3>
+
+            </div>
+
+            <p>
+                Grouped comparisons show:
+            </p>
+
+            <ul>
+
+                <li>
+                    Trend direction versus recent sessions
+                </li>
+
+                <li>
+                    Engagement-rate quartiles versus recent sessions
+                </li>
+
+                <li>
+                    Search-volume quartiles versus impressions
+                </li>
+
+            </ul>
+
+            <div class="info-box">
+
+                <strong>
+                    Overall classification:
+                </strong>
+
+                MIXED
+
+            </div>
+
+        </article>
+
+
+        <article class="artifact">
+
+            <div class="artifact-title">
+
+                <div class="artifact-icon">
+                    03
+                </div>
+
+                <h3>
+                    Validation Comparison
+                </h3>
+
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>
+                                Validation
+                            </th>
+
+                            <th>
+                                Accuracy
+                            </th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                Random split
+                            </td>
+
+                            <td class="highlight">
+                                70.13%
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Client-grouped split
+                            </td>
+
+                            <td class="highlight">
+                                57.24%
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                Majority baseline
+                            </td>
+
+                            <td class="highlight">
+                                54.21%
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </article>
+
+
+        <article class="artifact">
+
+            <div class="artifact-title">
+
+                <div class="artifact-icon">
+                    04
+                </div>
+
+                <h3>
+                    Leakage Audit
+                </h3>
+
+            </div>
+
+            <p>
+                The final feature set excludes target-derived
+                trend fields, recent and previous 30-day
+                outcome fields, and content/client identifiers.
+            </p>
+
+            <p>
+                This reduces the risk of the model directly
+                learning the target definition.
+            </p>
+
+        </article>
+
+
+        <article class="artifact">
+
+            <div class="artifact-title">
+
+                <div class="artifact-icon">
+                    05
+                </div>
+
+                <h3>
+                    Ranked Action Playbook
+                </h3>
+
+            </div>
+
+            <ol>
+
+                <li>
+                    Review declining pages.
+                </li>
+
+                <li>
+                    Review weak-engagement pages.
+                </li>
+
+                <li>
+                    Review high-demand / weak-visibility pages.
+                </li>
+
+                <li>
+                    Review aging content.
+                </li>
+
+                <li>
+                    Monitor mixed-signal pages.
+                </li>
+
+            </ol>
+
+        </article>
+
+    </div>
+
+
+    <h3 style="margin-top: 45px;">
+        Reproducibility Checklist
+    </h3>
+
+    <div class="card-grid">
+
+        <article class="card">
+
+            <h3>
+                ✓ Sections Complete
+            </h3>
+
+            <p>
+                Research question, data, methodology,
+                results, limitations and recommendations
+                are documented.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <h3>
+                ✓ Validation Documented
+            </h3>
+
+            <p>
+                Random and client-grouped validation results
+                are reported honestly.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <h3>
+                ✓ Leakage Audited
+            </h3>
+
+            <p>
+                Target-derived fields and identifiers are
+                excluded from predictive features.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <h3>
+                ✓ Public-Safe
+            </h3>
+
+            <p>
+                No client names, private queries, URLs,
+                credentials or raw warehouse exports
+                are included.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <h3>
+                ✓ Artifacts Identified
+            </h3>
+
+            <p>
+                Signal, validation, leakage and action
+                artifacts are represented in the paper.
+            </p>
+
+        </article>
+
+        <article class="card">
+
+            <h3>
+                ✓ Paper URL
+            </h3>
+
+            <p>
+                The deployed URL is ready to be placed
+                in submission/paper_url.txt.
+            </p>
+
+        </article>
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     ACKNOWLEDGMENTS
-===================================================== -->
+<!-- =========================================================
+     09 ACKNOWLEDGMENTS
+========================================================= -->
 
-<section id="acknowledgments">
+<section id="credit">
 
-    <div class="container">
+    <div class="section-label">
+        09 · Acknowledgments & Data Credit
+    </div>
 
-        <div class="section-number">09 · ACKNOWLEDGMENTS & DATA CREDIT</div>
+    <h2>
+        FlyRank Data Credit
+    </h2>
 
-        <h2 class="section-title">
-            FlyRank Data Credit
-        </h2>
+    <div class="info-box">
 
-        <div class="card">
+        <p>
+            This research artifact was developed as part of
+            the <strong>FlyRank ML Internship</strong>.
+        </p>
 
-            <p>
-                This research artifact was developed as part of the
-                <strong>FlyRank ML Internship</strong>.
-            </p>
+        <p>
+            <strong>
+                Built on the FlyRank ML Internship dataset.
+            </strong>
+        </p>
 
-            <p>
-                <strong>Built on the FlyRank ML Internship dataset.</strong>
-            </p>
+        <p>
+            The analysis uses anonymized, public-safe data
+            made available for internship research and learning.
+        </p>
 
-            <p>
-                The analysis uses anonymized, public-safe data made available
-                for internship research and learning.
-            </p>
+        <p style="margin-bottom: 0;">
 
-            <p>
-                Data source:
-                <a href="https://flyrank.ai/"
-                   target="_blank"
-                   style="color:#2563eb;font-weight:700;">
-                    FlyRank
-                </a>
-            </p>
+            Data source:
 
-        </div>
+            <a class="link"
+               href="https://flyrank.ai/"
+               target="_blank"
+               rel="noopener">
+                FlyRank
+            </a>
+
+        </p>
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     FINAL SUMMARY
-===================================================== -->
+<!-- =========================================================
+     10 FINAL SUMMARY
+========================================================= -->
 
-<section>
+<section id="summary">
 
-    <div class="container">
-
-        <div class="section-number">10 · FINAL SUMMARY</div>
-
-        <h2 class="section-title">
-            Content Opportunity Scoring
-        </h2>
-
-        <div class="card">
-
-            <p>
-                This study demonstrates a repeatable approach for using
-                observed search-performance signals to prioritize content
-                for human review.
-            </p>
-
-            <p>
-                The client-grouped evaluation shows a modest improvement
-                over a majority-class baseline, while also demonstrating
-                that random splits can provide a substantially more
-                optimistic estimate.
-            </p>
-
-            <p>
-                The resulting framework should therefore be used as a
-                practical review queue and decision-support system rather
-                than an automated content decision engine.
-            </p>
-
-        </div>
-
+    <div class="section-label">
+        10 · Final Summary
     </div>
-
-</section>
-
-</main>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
 
     <h2>
         Content Opportunity Scoring
     </h2>
 
-    <p>
-        FlyRank ML Internship · Capstone Research Paper
+    <p class="lead">
+        This study demonstrates a repeatable approach for
+        using observed search-performance signals to prioritize
+        content for human review.
     </p>
 
     <p>
-        Fatima Iqbal · AI Software Engineer · Data Science · Machine Learning
+        The client-grouped evaluation shows a modest improvement
+        over a majority-class baseline, while also demonstrating
+        that random splits can provide a substantially more
+        optimistic estimate.
+    </p>
+
+    <p>
+        The resulting framework should therefore be used as a
+        practical review queue and decision-support system
+        rather than an automated content decision engine.
     </p>
 
 
-    <div class="footer-links">
+    <div class="success-box">
 
-        <a href="https://github.com/fatimaiqbal34/Task1-week1"
-           target="_blank">
-            GitHub
+        <strong>
+            Final takeaway:
+        </strong>
+
+        Use observed signals to decide where to investigate
+        first. Do not treat the score as proof of causality,
+        guaranteed refresh success, or a prediction of
+        Google's ranking algorithm.
+
+    </div>
+
+
+    <div class="buttons">
+
+        <a class="button button-primary"
+           href="https://github.com/fatimaiqbal34/Task1-week1"
+           target="_blank"
+           rel="noopener">
+            GitHub Repository
         </a>
 
-        <a href="https://github.com/fatimaiqbal34/Task1-week1/blob/main/work/notebooks/capstone.ipynb"
-           target="_blank">
+        <a class="button button-secondary"
+           href="https://github.com/fatimaiqbal34/Task1-week1/blob/main/work/notebooks/capstone.ipynb"
+           target="_blank"
+           rel="noopener">
             Capstone Notebook
         </a>
 
-        <a href="https://flyrank.ai/"
-           target="_blank">
+        <a class="button button-secondary"
+           href="https://flyrank.ai/"
+           target="_blank"
+           rel="noopener">
             FlyRank
         </a>
 
-        <a href="#top">
+        <a class="button button-secondary"
+           href="#top">
             Back to Top ↑
         </a>
 
     </div>
 
+</section>
 
-    <p>
-        This research is intended for decision support. Results are
-        observational and directional and should not be interpreted as
-        causal claims about search algorithms.
-    </p>
 
-    <p>
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div>
+
+            <div class="footer-title">
+                Content Opportunity Scoring
+            </div>
+
+            <div class="footer-text">
+                FlyRank ML Internship · Capstone Research Paper
+            </div>
+
+            <div class="footer-text">
+                Fatima Iqbal · AI Software Engineer ·
+                Data Science · Machine Learning
+            </div>
+
+        </div>
+
+        <div class="footer-links">
+
+            <a href="https://github.com/fatimaiqbal34/Task1-week1"
+               target="_blank"
+               rel="noopener">
+                GitHub
+            </a>
+
+            <a href="https://github.com/fatimaiqbal34/Task1-week1/blob/main/work/notebooks/capstone.ipynb"
+               target="_blank"
+               rel="noopener">
+                Notebook
+            </a>
+
+            <a href="https://flyrank.ai/"
+               target="_blank"
+               rel="noopener">
+                FlyRank
+            </a>
+
+            <a href="#top">
+                Back to Top ↑
+            </a>
+
+        </div>
+
+    </div>
+
+    <div style="
+        max-width:1180px;
+        margin:30px auto 0;
+        padding-top:20px;
+        border-top:1px solid #1e293b;
+        color:#64748b;
+        font-size:0.82rem;
+    ">
+
+        This research is intended for decision support.
+        Results are observational and directional and should
+        not be interpreted as causal claims about search algorithms.
+
+        <br><br>
+
         © 2026 Fatima Iqbal
-    </p>
+
+    </div>
 
 </footer>
-
 
 </body>
 </html>
