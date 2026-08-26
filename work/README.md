@@ -223,3 +223,17 @@ The grouped result is therefore treated as the more conservative estimate of per
                         |
                         v
                 Human Reviewer
+                
+## 9. Setup
+
+### Requirements
+
+- Python 3.10 or newer
+- Git
+- VS Code or Jupyter Notebook
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/fatimaiqbal34/Task1-Week1.git
+cd Task1-Week1

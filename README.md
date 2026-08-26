@@ -6,6 +6,8 @@
 
 A decision-support framework for prioritizing content observations that may deserve earlier human review.
 
+---
+
 ## 1. What This Project Does
 
 Content teams may have many pages to review while search visibility, traffic, engagement, search demand, content age, and trend signals change at different rates.
@@ -20,6 +22,8 @@ The output is intended as a **review-prioritization tool**, not an automatic con
 
 It does not predict Google's ranking algorithm and does not claim that refreshing a page will cause better performance.
 
+---
+
 ## 2. Who Is It For?
 
 This project is designed for:
@@ -32,9 +36,13 @@ This project is designed for:
 
 The main user is a reviewer who needs to decide **where to investigate first**.
 
+---
+
 ## 3. Research Question
 
 Which observable search-performance signals can be combined into a repeatable score to identify content pages that should be prioritized for refresh or human review?
+
+---
 
 ## 4. Data
 
@@ -57,7 +65,7 @@ Primary signal families include:
 - Content age
 - Trend-related signals
 
-### Public-Safety
+### Public Safety
 
 The public research artifact excludes:
 
@@ -71,6 +79,8 @@ The public research artifact excludes:
 - Client and content identifiers as predictive features
 
 Sparse AI-referral fields were not used as primary opportunity signals where their density was insufficient.
+
+---
 
 ## 5. Methodology
 
@@ -136,6 +146,8 @@ Identifiers such as:
 
 were also excluded.
 
+---
+
 ## 6. Validation
 
 The original random split produced:
@@ -144,13 +156,13 @@ The original random split produced:
 
 Because observations from the same client may be related, a more conservative client-grouped validation was also performed using `GroupShuffleSplit`.
 
-The client-grouped validation kept records from the same client together rather than allowing the same client to appear in both training and testing data.
+The client-grouped evaluation kept records from the same client together.
 
 This produced:
 
 **57.24% accuracy**
 
-The grouped result is treated as the more conservative estimate of generalization to unseen clients.
+---
 
 ## 7. V2 Evaluation Results
 
@@ -164,56 +176,50 @@ The grouped result is treated as the more conservative estimate of generalizatio
 
 The Random Forest achieved **57.24% accuracy** under client-grouped validation compared with **54.21%** for the majority-class baseline.
 
-That is an improvement of approximately:
-
-**+3.03 percentage points**
+This is an improvement of approximately **3.03 percentage points**.
 
 The original random split produced 70.13%, which is substantially higher.
 
 The grouped result is therefore treated as the more conservative estimate of performance on unseen clients.
 
-### Interpretation
-
-The result provides modest evidence that the selected observable signals contain useful information for prioritizing content review.
-
-However, the improvement is not large enough to justify automatic content decisions.
-
-The model should therefore be used to help decide **where to investigate first**, with the final decision remaining with a human reviewer.
+---
 
 ## 8. Architecture
 
 ```text
-                 FlyRank Warehouse
-                        |
-                        v
-        fact_content_daily_performance
-                        |
-                        v
-              Data Preparation
-                        |
-                        v
-              Feature Construction
-                        |
-             +----------+----------+
-             |                     |
-             v                     v
-       Signal Analysis       Leakage Audit
-             |                     |
-             +----------+----------+
-                        |
-                        v
-                Random Forest
-                        |
-             +----------+----------+
-             |                     |
-             v                     v
-       Random Split        Client-Grouped Split
-             |                     |
-             v                     v
-          70.13%                57.24%
-                        |
-                        v
-               Review Priorities
-                        |
-                        v
-                Human Reviewer
+FlyRank Warehouse
+       |
+       v
+fact_content_daily_performance
+       |
+       v
+Data Preparation
+       |
+       v
+Feature Construction
+       |
+       +-------------------+
+       |                   |
+       v                   v
+Signal Analysis      Leakage Audit
+       |                   |
+       +---------+---------+
+                 |
+                 v
+          Random Forest
+                 |
+       +---------+---------+
+       |                   |
+       v                   v
+Random Split      Client-Grouped Split
+       |                   |
+       v                   v
+   70.13%              57.24%
+       |                   |
+       +---------+---------+
+                 |
+                 v
+        Review Priorities
+                 |
+                 v
+         Human Reviewer
